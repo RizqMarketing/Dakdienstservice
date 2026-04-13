@@ -77,6 +77,32 @@ img{max-width:100%;display:block}a{text-decoration:none;color:inherit}
 .nav-cta{display:inline-flex;align-items:center;gap:8px;background:var(--orange);color:#fff;font-family:'Outfit';font-weight:600;font-size:13px;padding:10px 22px;border-radius:50px;transition:all .35s var(--ease);box-shadow:0 4px 18px var(--orange-glow)}
 .nav-cta:hover{transform:translateY(-2px);box-shadow:0 8px 28px var(--orange-glow-s)}
 .nav-cta svg{width:14px;height:14px}
+@media(max-width:899px){.nav-cta{display:none}}
+
+/* Mobile hamburger + drawer */
+.nav-burger{display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:12px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);cursor:pointer;transition:all .25s var(--ease);margin-left:10px}
+.nav-burger:hover{background:rgba(255,255,255,.1)}
+.nav-burger span{position:relative;width:18px;height:2px;background:#fff;border-radius:2px;transition:all .3s var(--ease)}
+.nav-burger span::before,.nav-burger span::after{content:'';position:absolute;left:0;width:18px;height:2px;background:#fff;border-radius:2px;transition:all .3s var(--ease)}
+.nav-burger span::before{top:-6px}
+.nav-burger span::after{top:6px}
+.nav-burger.open span{background:transparent}
+.nav-burger.open span::before{top:0;transform:rotate(45deg)}
+.nav-burger.open span::after{top:0;transform:rotate(-45deg)}
+@media(min-width:900px){.nav-burger{display:none}}
+
+.nav-drawer{position:fixed;top:0;right:0;bottom:0;width:min(86%,340px);z-index:1001;background:rgba(12,27,51,.98);backdrop-filter:blur(30px) saturate(180%);-webkit-backdrop-filter:blur(30px) saturate(180%);border-left:1px solid rgba(255,255,255,.08);padding:90px 28px 32px;transform:translateX(100%);transition:transform .4s var(--ease);display:flex;flex-direction:column;gap:4px;box-shadow:-20px 0 60px rgba(0,0,0,.4)}
+.nav-drawer.open{transform:translateX(0)}
+.nav-drawer a{display:flex;align-items:center;gap:12px;padding:14px 16px;border-radius:12px;color:rgba(255,255,255,.8);font-family:'Outfit';font-weight:600;font-size:15px;transition:all .25s var(--ease)}
+.nav-drawer a:hover,.nav-drawer a:focus{background:rgba(28,163,236,.1);color:#fff}
+.nav-drawer a svg{width:18px;height:18px;color:var(--orange);flex-shrink:0}
+.nav-drawer hr{border:none;border-top:1px solid rgba(255,255,255,.08);margin:14px 0}
+.nav-drawer .nd-cta{justify-content:center;background:var(--orange);color:#fff;font-weight:700;margin-top:10px;box-shadow:0 8px 20px var(--orange-glow)}
+.nav-drawer .nd-cta:hover{background:var(--orange-hover)}
+.nav-drawer .nd-cta svg{color:#fff}
+.nav-scrim{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:1000;opacity:0;pointer-events:none;transition:opacity .35s var(--ease)}
+.nav-scrim.open{opacity:1;pointer-events:auto}
+body.nav-open{overflow:hidden}
 
 /* ===== HERO ===== */
 .hero{position:relative;display:flex;flex-direction:column;justify-content:flex-start;padding:120px 24px 40px;overflow:hidden;background:var(--navy-deep)}
@@ -144,12 +170,13 @@ img{max-width:100%;display:block}a{text-decoration:none;color:inherit}
 .hero-content{position:relative;z-index:5;max-width:700px}
 
 /* Hero trust mini-row (desktop only) */
-.hero-trust{display:none;gap:24px;margin-top:32px;flex-wrap:wrap}
-.ht-item{display:flex;align-items:center;gap:8px;font-family:'Outfit';font-weight:600;font-size:13px;color:rgba(255,255,255,.75)}
+.hero-trust{display:flex;gap:18px 26px;margin-top:28px;padding-top:24px;border-top:1px solid rgba(255,255,255,.08);flex-wrap:wrap}
+.ht-item{display:flex;align-items:center;gap:9px;font-family:'Outfit';font-weight:600;font-size:13px;color:rgba(255,255,255,.8)}
 .ht-item svg{width:18px;height:18px;flex-shrink:0}
+.ht-item strong{color:#fff;font-weight:700}
 
 /* Hero inline offerte form */
-.hero-form{display:none;position:relative;z-index:5;width:100%;max-width:420px;background:rgba(255,255,255,.06);backdrop-filter:blur(24px) saturate(160%);-webkit-backdrop-filter:blur(24px) saturate(160%);border:1px solid rgba(255,255,255,.12);border-radius:24px;padding:28px;box-shadow:0 24px 60px rgba(0,0,0,.35),0 0 0 1px rgba(28,163,236,.08) inset;opacity:0;transform:translateY(30px) scale(.98);transition:opacity .9s var(--ease) .8s,transform .9s var(--ease) .8s}
+.hero-form{display:block;position:relative;z-index:5;width:100%;max-width:460px;margin:32px auto 0;background:rgba(255,255,255,.06);backdrop-filter:blur(24px) saturate(160%);-webkit-backdrop-filter:blur(24px) saturate(160%);border:1px solid rgba(255,255,255,.12);border-radius:24px;padding:28px;box-shadow:0 24px 60px rgba(0,0,0,.35),0 0 0 1px rgba(28,163,236,.08) inset;opacity:0;transform:translateY(30px) scale(.98);transition:opacity .9s var(--ease) .8s,transform .9s var(--ease) .8s}
 .hero.entered .hero-form{opacity:1;transform:none}
 .hf-head{margin-bottom:20px}
 .hf-eye{display:inline-flex;align-items:center;gap:8px;font-family:'Outfit';font-weight:700;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--orange);margin-bottom:10px}
@@ -180,6 +207,7 @@ img{max-width:100%;display:block}a{text-decoration:none;color:inherit}
 .hero.entered h1{opacity:1;transform:none;filter:none;transition-delay:.2s}
 .hero.entered .hero-sub{opacity:1;transform:none;filter:none;transition-delay:.4s}
 .hero.entered .hero-btns{opacity:1;transform:none;filter:none;transition-delay:.55s}
+.hero.entered .hero-trust{opacity:1;transform:none;filter:none;transition-delay:.7s}
 
 /* Nav slides down */
 .nav{opacity:0;transform:translateY(-30px);transition:opacity .7s var(--ease),transform .7s var(--ease),background .5s var(--ease),padding .5s var(--ease),box-shadow .5s var(--ease)}
@@ -658,8 +686,7 @@ body{padding-bottom:86px}
   .hero{padding:140px 48px 100px;flex-direction:row;align-items:center;gap:60px}
   .hero>.hero-bg,.hero>.hero-aurora,.hero>.hero-streaks,.hero>.hero-particles{flex:unset}
   .hero-content{flex:1 1 auto;max-width:640px;margin-left:auto}
-  .hero-trust{display:flex}
-  .hero-form{display:block;flex:0 0 420px;margin-right:auto}
+  .hero-form{flex:0 0 420px;margin:0 auto 0 0;margin-right:auto}
   .hero h1{font-size:clamp(44px,6vw,76px)}
   .hero-metrics-in{grid-template-columns:1fr auto 1fr auto 1fr;padding:36px 48px;gap:40px;align-items:center}
   .hm-num{font-size:46px}
@@ -742,12 +769,28 @@ body{padding-bottom:86px}
       <a href="#projecten" class="nav-link">Projecten</a>
       <a href="#reviews" class="nav-link">Reviews</a>
     </div>
-    <a href="#" onclick="openModal(event)" class="nav-cta">
-      <svg viewBox="0 0 14 14" fill="none"><path d="M11.5 2.5L2 7l3.5 1.2L9 5 6.5 9.5l1.2 3.5 3.8-10z" fill="currentColor"/></svg>
-      Offerte
-    </a>
+    <div style="display:flex;align-items:center">
+      <a href="#" onclick="openModal(event)" class="nav-cta">
+        <svg viewBox="0 0 14 14" fill="none"><path d="M11.5 2.5L2 7l3.5 1.2L9 5 6.5 9.5l1.2 3.5 3.8-10z" fill="currentColor"/></svg>
+        Offerte
+      </a>
+      <button class="nav-burger" id="navBurger" aria-label="Menu" aria-expanded="false"><span></span></button>
+    </div>
   </div>
 </nav>
+
+<!-- Mobile menu drawer -->
+<div class="nav-scrim" id="navScrim"></div>
+<aside class="nav-drawer" id="navDrawer" aria-hidden="true">
+  <a href="#diensten"><svg viewBox="0 0 18 18" fill="none"><path d="M3 6h12M3 9h12M3 12h8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>Diensten</a>
+  <a href="#waarom"><svg viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="7.5" stroke="currentColor" stroke-width="1.4"/><path d="M9 5.5v4M9 12h.01" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>Waarom Wij</a>
+  <a href="#projecten"><svg viewBox="0 0 18 18" fill="none"><path d="M2 7l7-4 7 4-7 4-7-4zM2 11l7 4 7-4" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>Projecten</a>
+  <a href="#reviews"><svg viewBox="0 0 18 18" fill="none"><path d="M9 1l2.4 5L17 6.7l-4 3.8 1 5.5L9 13.3 4 16l1-5.5-4-3.8 5.6-.7L9 1z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>Reviews</a>
+  <hr>
+  <a href="tel:+31640865368"><svg viewBox="0 0 18 18" fill="none"><path d="M7 10c1 2 3 4 5 5l1.5-1.5c.2-.2.5-.3.8-.2.9.3 1.8.4 2.8.4.4 0 .8.4.8.8v2.2c0 .4-.4.8-.8.8C8.1 17.5.5 10 .5 1.2c0-.4.4-.8.8-.8h2.2c.4 0 .8.4.8.8 0 1 .1 1.9.4 2.8.1.3 0 .6-.2.8L3 6.3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>06 4086 5368</a>
+  <a href="https://wa.me/31640865368" target="_blank" rel="noopener"><svg viewBox="0 0 18 18" fill="none"><path d="M9 2a7 7 0 00-5.8 10.8L2.5 16l3.4-.7A7 7 0 109 2z" stroke="currentColor" stroke-width="1.4"/></svg>WhatsApp</a>
+  <a href="#" onclick="closeNav();openModal(event)" class="nd-cta"><svg viewBox="0 0 14 14" fill="none"><path d="M11.5 2.5L2 7l3.5 1.2L9 5 6.5 9.5l1.2 3.5 3.8-10z" fill="currentColor"/></svg>Gratis Offerte</a>
+</aside>
 
 <!-- ===== HERO ===== -->
 <section class="hero" id="hero">
@@ -782,9 +825,9 @@ body{padding-bottom:86px}
 
     <!-- Hero trust row (desktop only) -->
     <div class="hero-trust">
-      <div class="ht-item"><svg viewBox="0 0 18 18" fill="none"><path d="M9 1L3 4v5c0 4 2.5 7 6 8.5C12.5 16 15 13 15 9V4L9 1z" stroke="#1CA3EC" stroke-width="1.4"/><path d="M6.5 9l2 2 3-3.5" stroke="#1CA3EC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>10 Jaar Garantie</span></div>
-      <div class="ht-item"><svg viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="7.5" stroke="#1CA3EC" stroke-width="1.4"/><path d="M9 4v5l3 2" stroke="#1CA3EC" stroke-width="1.5" stroke-linecap="round"/></svg><span>24/7 Bereikbaar</span></div>
-      <div class="ht-item"><svg viewBox="0 0 18 18" fill="none"><path d="M2 14l5-5 3 3 6-7" stroke="#1CA3EC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M11 5h5v5" stroke="#1CA3EC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>4.9★ op Google</span></div>
+      <div class="ht-item"><svg viewBox="0 0 20 20" fill="none"><path d="M10 1L3 4v5c0 4.5 3 8 7 9.5 4-1.5 7-5 7-9.5V4l-7-3z" stroke="#1CA3EC" stroke-width="1.4"/><path d="M7 10l2 2 4-5" stroke="#1CA3EC" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>10 jaar</strong> garantie</span></div>
+      <div class="ht-item"><svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="8.5" stroke="#1CA3EC" stroke-width="1.4"/><path d="M10 5v5l3 2" stroke="#1CA3EC" stroke-width="1.6" stroke-linecap="round"/></svg><span><strong>25 jaar</strong> ervaring</span></div>
+      <div class="ht-item"><svg viewBox="0 0 20 20" fill="none"><path d="M10 1l2.5 5.5L18 7.5l-4 4 1 5.5-5-2.8-5 2.8 1-5.5-4-4 5.5-1L10 1z" stroke="#1CA3EC" stroke-width="1.4" stroke-linejoin="round"/></svg><span><strong>4.6★</strong> op Google</span></div>
     </div>
   </div>
 
@@ -889,8 +932,8 @@ body{padding-bottom:86px}
     </div>
     <div class="show-item">
       <div class="show-ico"><svg viewBox="0 0 22 22" fill="none"><circle cx="8" cy="8" r="3.5" stroke="#1CA3EC" stroke-width="1.2"/><circle cx="15" cy="8" r="3.5" stroke="#1CA3EC" stroke-width="1.2"/><path d="M2 20c0-3 2.5-5.5 6-5.5 1.8 0 3.2.6 4 1.5.8-.9 2.2-1.5 4-1.5 3.5 0 6 2.5 6 5.5" stroke="rgba(255,255,255,.5)" stroke-width="1.2" stroke-linecap="round"/></svg></div>
-      <div class="show-num" data-count="1400">0<span class="acc">+</span></div>
-      <div class="show-lbl">Tevreden Klanten</div>
+      <div class="show-num" data-count="75">0<span class="acc"> Reviews</span></div>
+      <div class="show-lbl">4.6★ op Google</div>
     </div>
   </div>
 </section>
@@ -1472,6 +1515,19 @@ document.querySelectorAll('.testi-row').forEach(row=>{
     requestAnimationFrame(tick);
   }
   requestAnimationFrame(tick);
+})();
+
+// ===== MOBILE NAV DRAWER =====
+(function(){
+  const b=document.getElementById('navBurger'),d=document.getElementById('navDrawer'),s=document.getElementById('navScrim');
+  if(!b)return;
+  function open(){b.classList.add('open');d.classList.add('open');s.classList.add('open');document.body.classList.add('nav-open');b.setAttribute('aria-expanded','true');d.setAttribute('aria-hidden','false')}
+  function close(){b.classList.remove('open');d.classList.remove('open');s.classList.remove('open');document.body.classList.remove('nav-open');b.setAttribute('aria-expanded','false');d.setAttribute('aria-hidden','true')}
+  window.closeNav=close;
+  b.addEventListener('click',()=>b.classList.contains('open')?close():open());
+  s.addEventListener('click',close);
+  d.querySelectorAll('a').forEach(a=>a.addEventListener('click',close));
+  document.addEventListener('keydown',e=>e.key==='Escape'&&close());
 })();
 
 // ===== HERO FORM =====

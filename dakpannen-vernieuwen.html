@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<title>Dakpannen Vernieuwen — DakDienstService | Vakkundig & 10 Jaar Garantie</title>
+<meta name="description" content="Dakpannen vernieuwen door ervaren dakdekkers. Vaste vakploeg, 10 jaar garantie, vrijblijvende offerte binnen 24u. Heel Nederland — 25 jaar ervaring.">
+<meta name="robots" content="index,follow">
+<meta property="og:title" content="Dakpannen Vernieuwen — DakDienstService">
+<meta property="og:description" content="Nieuwe dakpannen + 10 jaar garantie. Vrijblijvende offerte binnen 24u.">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/png" href="logo-dakdienstservice.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --blue:#1CA3EC;--blue-hover:#0E8FD4;--blue-light:#E8F6FD;
+  --blue-glow:rgba(28,163,236,.28);--blue-glow-s:rgba(28,163,236,.45);
+  --navy:#0A2540;--navy-deep:#06182D;--navy-mid:#0C2543;--navy-light:#1E4E80;
+  --white:#fff;--off-white:#FAFAF8;
+  --text:#1A1A2E;--text-s:#5A6478;--text-m:#8E95A5;
+  --border:rgba(27,59,107,.08);
+  --r:16px;--r-lg:24px;
+  --ease:cubic-bezier(.16,1,.3,1);
+}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:'DM Sans',sans-serif;color:var(--text);background:#fff;overflow-x:hidden;-webkit-font-smoothing:antialiased;padding-bottom:86px}
+html,body{max-width:100vw}
+*{-webkit-tap-highlight-color:transparent}
+h1,h2,h3,h4{font-family:'Outfit',sans-serif;font-weight:800;line-height:1.1;color:var(--navy-deep)}
+img{max-width:100%;display:block}a{text-decoration:none;color:inherit}
+
+/* ===== LOADER ===== */
+.loader{position:fixed;inset:0;background:var(--navy-deep);z-index:9999;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:24px;transition:opacity .5s ease .1s,visibility .5s ease .1s}
+.loader.done{opacity:0;visibility:hidden;pointer-events:none;transform:scale(1.05)}
+.loader-mark{width:64px;height:64px;background:var(--blue);border-radius:20px;display:flex;align-items:center;justify-content:center;animation:loaderPop 1.4s ease-in-out infinite;box-shadow:0 0 40px rgba(28,163,236,.2)}
+.loader-mark svg{width:30px;height:30px}
+@keyframes loaderPop{0%,100%{transform:scale(1);box-shadow:0 0 40px rgba(28,163,236,.2)}50%{transform:scale(1.1);box-shadow:0 0 60px rgba(28,163,236,.3),0 0 0 20px rgba(28,163,236,0)}}
+.loader-name{font-family:'Outfit';font-weight:800;font-size:18px;color:#fff;letter-spacing:-.5px;opacity:0;animation:loaderNameIn .6s .3s var(--ease) forwards}
+.loader-name .dot{color:var(--blue)}
+@keyframes loaderNameIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.loader-track{width:100px;height:3px;background:rgba(255,255,255,.06);border-radius:2px;overflow:hidden}
+.loader-track span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--blue),#7DD3FC);border-radius:2px;animation:fill 1.2s ease-in-out forwards}
+@keyframes fill{to{width:100%}}
+
+/* ===== GRAND ENTRANCE ===== */
+.hero-in>div>*,.hero-in>form{opacity:0;transform:translateY(40px) scale(.98);filter:blur(6px);transition:opacity .8s var(--ease),transform .8s var(--ease),filter .8s var(--ease)}
+.hero.entered .h-chip{opacity:1;transform:none;filter:none;transition-delay:.05s}
+.hero.entered h1{opacity:1;transform:none;filter:none;transition-delay:.18s}
+.hero.entered .lead{opacity:1;transform:none;filter:none;transition-delay:.32s}
+.hero.entered .hero-bullets{opacity:1;transform:none;filter:none;transition-delay:.44s}
+.hero.entered .hero-btns{opacity:1;transform:none;filter:none;transition-delay:.56s}
+.hero.entered .hero-trust{opacity:1;transform:none;filter:none;transition-delay:.68s}
+.hero.entered .hf{opacity:1;transform:none;filter:none;transition-delay:.75s}
+.hero::after{content:'';position:absolute;inset:0;background:linear-gradient(105deg,transparent 40%,rgba(28,163,236,.07) 48%,rgba(255,255,255,.04) 50%,rgba(28,163,236,.07) 52%,transparent 60%);z-index:2;pointer-events:none;transform:translateX(-150%);opacity:0}
+.hero.entered::after{animation:heroSweep 1.2s .5s var(--ease) forwards}
+@keyframes heroSweep{0%{transform:translateX(-150%);opacity:1}100%{transform:translateX(150%);opacity:0}}
+.hero.entered .btn-p{animation:btnGlow 1.8s 1.4s ease-in-out}
+@keyframes btnGlow{0%{box-shadow:0 8px 28px var(--blue-glow)}30%{box-shadow:0 0 0 0 var(--blue-glow-s),0 8px 28px var(--blue-glow)}60%{box-shadow:0 0 0 16px rgba(28,163,236,0),0 8px 28px var(--blue-glow)}100%{box-shadow:0 8px 28px var(--blue-glow)}}
+.hero h1 .accent{background:linear-gradient(135deg,#1CA3EC 0%,#7DD3FC 50%,#1CA3EC 100%);background-size:200% 100%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero.entered h1 .accent{animation:textShimmer 2s 1s ease-in-out}
+@keyframes textShimmer{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+.nav{opacity:0;transform:translateY(-30px);transition:opacity .7s var(--ease),transform .7s var(--ease),padding .5s var(--ease),box-shadow .5s var(--ease)}
+.nav.entered{opacity:1;transform:translateY(0)}
+
+/* ===== NAV (same as homepage) ===== */
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 20px;transition:all .5s var(--ease);background:rgba(12,27,51,.85);backdrop-filter:blur(24px) saturate(180%);-webkit-backdrop-filter:blur(24px) saturate(180%);box-shadow:0 4px 30px rgba(0,0,0,.15)}
+.nav.scrolled{padding:10px 20px;box-shadow:0 4px 30px rgba(0,0,0,.25)}
+.nav-in{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{display:flex;align-items:center;gap:10px}
+.nav-logo-t{font-family:'Outfit';font-weight:800;font-size:22px;color:#fff;letter-spacing:-.5px}
+.nav-logo-t .dot{color:var(--blue)}
+.nav-links{display:none;align-items:center;gap:28px}
+.nav-link{font-size:13px;font-weight:500;color:rgba(255,255,255,.6);transition:color .25s}
+.nav-link:hover{color:#fff}
+.nav-cta{display:inline-flex;align-items:center;gap:8px;background:var(--blue);color:#fff;font-family:'Outfit';font-weight:600;font-size:13px;padding:10px 22px;border-radius:50px;box-shadow:0 4px 18px var(--blue-glow);transition:all .35s var(--ease)}
+.nav-cta:hover{transform:translateY(-2px);box-shadow:0 8px 28px var(--blue-glow-s)}
+.nav-cta svg{width:14px;height:14px}
+@media(max-width:899px){.nav-cta{display:none}}
+@media(min-width:900px){.nav-links{display:flex}}
+.nav-burger{display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:12px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);cursor:pointer;transition:all .25s var(--ease);margin-left:10px}
+.nav-burger:hover{background:rgba(255,255,255,.1)}
+.nav-burger span{position:relative;width:18px;height:2px;background:#fff;border-radius:2px;transition:all .3s var(--ease)}
+.nav-burger span::before,.nav-burger span::after{content:'';position:absolute;left:0;width:18px;height:2px;background:#fff;border-radius:2px;transition:all .3s var(--ease)}
+.nav-burger span::before{top:-6px}.nav-burger span::after{top:6px}
+.nav-burger.open span{background:transparent}
+.nav-burger.open span::before{top:0;transform:rotate(45deg)}
+.nav-burger.open span::after{top:0;transform:rotate(-45deg)}
+@media(min-width:900px){.nav-burger{display:none}}
+.nav-drawer{position:fixed;top:0;right:0;bottom:0;width:min(86%,340px);z-index:1001;background:rgba(12,27,51,.98);backdrop-filter:blur(30px) saturate(180%);-webkit-backdrop-filter:blur(30px) saturate(180%);border-left:1px solid rgba(255,255,255,.08);padding:90px 28px 32px;transform:translateX(100%);transition:transform .4s var(--ease);display:flex;flex-direction:column;gap:4px;box-shadow:-20px 0 60px rgba(0,0,0,.4)}
+.nav-drawer.open{transform:translateX(0)}
+.nav-drawer a{display:flex;align-items:center;gap:12px;padding:14px 16px;border-radius:12px;color:rgba(255,255,255,.8);font-family:'Outfit';font-weight:600;font-size:15px;transition:all .25s var(--ease)}
+.nav-drawer a:hover{background:rgba(28,163,236,.1);color:#fff}
+.nav-drawer a svg{width:18px;height:18px;color:var(--blue);flex-shrink:0}
+.nav-drawer hr{border:none;border-top:1px solid rgba(255,255,255,.08);margin:14px 0}
+.nav-drawer .nd-cta{justify-content:center;background:var(--blue);color:#fff;font-weight:700;margin-top:10px;box-shadow:0 8px 20px var(--blue-glow)}
+.nav-drawer .nd-cta:hover{background:var(--blue-hover)}
+.nav-drawer .nd-cta svg{color:#fff}
+.nav-scrim{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:1000;opacity:0;pointer-events:none;transition:opacity .35s var(--ease)}
+.nav-scrim.open{opacity:1;pointer-events:auto}
+body.nav-open{overflow:hidden}
+
+/* ===== FOOTER (same style as homepage) ===== */
+.footer{padding:0 24px 28px;background:var(--navy-deep);position:relative;color:#fff}
+.footer-accent{height:3px;background:linear-gradient(90deg,transparent 10%,var(--blue) 50%,transparent 90%);opacity:.2;margin-bottom:48px}
+.footer-in{max-width:1200px;margin:0 auto}
+.footer-top{display:flex;flex-direction:column;gap:40px;margin-bottom:36px;padding-bottom:32px;border-bottom:1px solid rgba(255,255,255,.06)}
+.footer-brand{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.footer-bt{font-family:'Outfit';font-weight:800;font-size:22px;color:#fff;letter-spacing:-.3px}
+.footer-bt .dot{color:var(--blue)}
+.footer-desc{font-size:13px;line-height:1.75;color:rgba(255,255,255,.45);max-width:300px;margin-bottom:20px}
+.footer-cta{display:inline-flex;align-items:center;gap:8px;background:rgba(28,163,236,.12);border:1px solid rgba(28,163,236,.2);color:var(--blue);font-family:'Outfit';font-weight:600;font-size:12px;padding:9px 18px;border-radius:50px;transition:all .3s var(--ease);cursor:pointer}
+.footer-cta:hover{background:var(--blue);color:#fff;border-color:var(--blue)}
+.footer-cta svg{width:14px;height:14px}
+.footer-cols{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.footer-col-full{grid-column:1/-1}
+.footer-col h4{font-family:'Outfit';font-weight:700;font-size:11px;color:var(--blue);margin-bottom:16px;letter-spacing:1.5px;text-transform:uppercase}
+.footer-col a{display:flex;align-items:center;gap:8px;font-size:13px;color:rgba(255,255,255,.5);margin-bottom:11px;transition:color .25s,transform .25s;word-break:break-all}
+.footer-col a:hover{color:#fff;transform:translateX(3px)}
+.footer-col .fi{width:18px;height:18px;flex-shrink:0;padding:6px;box-sizing:content-box;background:rgba(28,163,236,.1);border:1px solid rgba(28,163,236,.2);border-radius:10px;color:var(--blue);transition:all .3s var(--ease);box-shadow:0 0 14px rgba(28,163,236,.15)}
+.footer-col a:hover .fi{background:rgba(28,163,236,.2);border-color:rgba(28,163,236,.4);box-shadow:0 0 20px rgba(28,163,236,.4)}
+.footer-time{display:flex;align-items:center;gap:8px;font-size:13px;color:rgba(255,255,255,.5);margin-bottom:11px}
+.footer-time-dot{width:6px;height:6px;border-radius:50%;background:var(--blue);box-shadow:0 0 6px rgba(28,163,236,.4);flex-shrink:0}
+.footer-bot{display:flex;flex-direction:column;gap:12px;align-items:center;text-align:center}
+.footer-copy{font-size:11px;color:rgba(255,255,255,.25)}
+.footer-legal{display:flex;gap:16px;flex-wrap:wrap;justify-content:center}
+.footer-legal a{font-size:11px;color:rgba(255,255,255,.25);transition:color .2s}
+.footer-legal a:hover{color:var(--blue)}
+@media(min-width:768px){
+  .footer{padding:0 48px 40px}
+  .footer-top{flex-direction:row;gap:60px}
+  .footer-cols{grid-template-columns:repeat(3,1fr);gap:40px}
+  .footer-col-full{grid-column:auto}
+  .footer-bot{flex-direction:row;justify-content:space-between}
+}
+
+/* ===== HERO ===== */
+.hero{position:relative;padding:110px 20px 50px;background:var(--navy-deep);overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:url('img-dakpannen-vernieuwen.png') center/cover;opacity:.5;filter:saturate(1.15) contrast(1.05)}
+.hero-bg::after{content:'';position:absolute;inset:0;background:
+  radial-gradient(ellipse 70% 50% at 85% 20%,rgba(28,163,236,.22),transparent 60%),
+  linear-gradient(90deg,rgba(12,27,51,.94) 0%,rgba(12,27,51,.7) 55%,rgba(12,27,51,.35) 100%),
+  linear-gradient(180deg,rgba(12,27,51,.3) 0%,transparent 30%,rgba(12,27,51,.5) 100%)}
+.hero-in{position:relative;z-index:2;max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr;gap:40px;align-items:center}
+@media(min-width:960px){.hero-in{grid-template-columns:1.15fr .85fr;gap:60px}.hero{padding:130px 40px 90px}}
+.h-chip{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.06);border:1px solid rgba(28,163,236,.3);color:#7DD3FC;font-family:'Outfit';font-weight:700;font-size:11px;letter-spacing:2px;text-transform:uppercase;padding:8px 16px;border-radius:50px;margin-bottom:24px}
+.h-chip .pulse{width:7px;height:7px;border-radius:50%;background:var(--blue);box-shadow:0 0 0 0 var(--blue);animation:ping 2s infinite}
+@keyframes ping{0%{box-shadow:0 0 0 0 rgba(28,163,236,.6)}70%{box-shadow:0 0 0 10px rgba(28,163,236,0)}100%{box-shadow:0 0 0 0 rgba(28,163,236,0)}}
+.hero h1{font-size:clamp(34px,6vw,60px);color:#fff;letter-spacing:-1.8px;margin-bottom:22px;line-height:1.04}
+.hero h1 .accent{background:linear-gradient(135deg,#1CA3EC 0%,#7DD3FC 50%,#1CA3EC 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero p.lead{font-size:17px;line-height:1.7;color:rgba(255,255,255,.7);margin-bottom:30px;max-width:560px}
+.hero-bullets{list-style:none;margin-bottom:32px;display:grid;gap:12px;max-width:480px}
+.hero-bullets li{display:flex;align-items:flex-start;gap:11px;font-size:15px;line-height:1.5;color:rgba(255,255,255,.85)}
+.hero-bullets svg{width:20px;height:20px;flex-shrink:0;margin-top:1px}
+.hero-btns{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:28px}
+.btn-p{display:inline-flex;align-items:center;gap:10px;background:var(--blue);color:#fff;font-family:'Outfit';font-weight:700;font-size:15px;padding:16px 30px;border-radius:50px;border:none;cursor:pointer;box-shadow:0 8px 28px var(--blue-glow);transition:all .3s var(--ease)}
+.btn-p:hover{transform:translateY(-3px);box-shadow:0 14px 40px var(--blue-glow-s)}
+.btn-p svg{width:16px;height:16px}
+.btn-s{display:inline-flex;align-items:center;gap:8px;color:#fff;font-family:'Outfit';font-weight:600;font-size:15px;padding:16px 26px;border-radius:50px;border:1.5px solid rgba(255,255,255,.18);background:transparent;transition:all .3s var(--ease)}
+.btn-s:hover{border-color:rgba(255,255,255,.4);background:rgba(255,255,255,.04)}
+.btn-s svg{width:16px;height:16px}
+.hero-trust{display:flex;flex-wrap:wrap;gap:20px 28px;padding-top:24px;border-top:1px solid rgba(255,255,255,.08)}
+.ht{display:flex;align-items:center;gap:9px;font-family:'Outfit';font-weight:600;font-size:13px;color:rgba(255,255,255,.8)}
+.ht svg{width:18px;height:18px;flex-shrink:0}
+.ht strong{color:#fff;font-weight:700}
+
+/* Hero form card */
+.hf{background:rgba(255,255,255,.06);backdrop-filter:blur(24px) saturate(160%);-webkit-backdrop-filter:blur(24px) saturate(160%);border:1px solid rgba(255,255,255,.14);border-radius:22px;padding:28px;box-shadow:0 24px 60px rgba(0,0,0,.4),0 0 0 1px rgba(28,163,236,.1) inset}
+.hf-eye{display:inline-flex;align-items:center;gap:8px;font-family:'Outfit';font-weight:700;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--blue);margin-bottom:10px}
+.hf-eye::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--blue);animation:ping 2s infinite}
+.hf h3{font-family:'Outfit';font-weight:800;font-size:24px;color:#fff;letter-spacing:-.8px;margin-bottom:6px;line-height:1.15}
+.hf .hf-sub{font-size:13px;line-height:1.55;color:rgba(255,255,255,.55);margin-bottom:18px}
+.hf-row{margin-bottom:10px}
+.hf-row input,.hf-row textarea{width:100%;padding:12px 14px;border:1px solid rgba(255,255,255,.12);border-radius:10px;font-family:'DM Sans';font-size:13.5px;color:#fff;background:rgba(255,255,255,.05);outline:none;transition:all .25s var(--ease);-webkit-appearance:none;appearance:none;resize:none}
+.hf-row input::placeholder,.hf-row textarea::placeholder{color:rgba(255,255,255,.42)}
+.hf-row input:focus,.hf-row textarea:focus{border-color:var(--blue);background:rgba(255,255,255,.08);box-shadow:0 0 0 3px rgba(28,163,236,.15)}
+.hf-split{display:grid;grid-template-columns:1fr 80px;gap:8px}
+.hf-btn{width:100%;display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--blue);color:#fff;font-family:'Outfit';font-weight:700;font-size:14px;padding:15px 20px;border:none;border-radius:12px;cursor:pointer;box-shadow:0 8px 24px var(--blue-glow);transition:all .25s var(--ease);margin-top:6px}
+.hf-btn:hover{transform:translateY(-2px);box-shadow:0 12px 32px var(--blue-glow-s)}
+.hf-btn svg{width:16px;height:16px}
+.hf-foot{display:flex;align-items:center;justify-content:center;gap:6px;font-size:11px;color:rgba(255,255,255,.5);margin-top:14px}
+.hf-foot svg{width:12px;height:12px}
+
+/* ===== REVIEW STRIP ===== */
+.rstrip{background:linear-gradient(180deg,var(--off-white) 0%,#fff 100%);padding:34px 20px;border-bottom:1px solid var(--border)}
+.rstrip-in{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px}
+.rstrip-item{display:flex;align-items:center;gap:12px;padding:16px 18px;background:#fff;border:1px solid var(--border);border-radius:16px;font-family:'Outfit';font-weight:600;font-size:13px;color:var(--text-s);transition:all .3s var(--ease);box-shadow:0 2px 10px rgba(27,59,107,.03)}
+.rstrip-item:hover{transform:translateY(-2px);border-color:rgba(28,163,236,.25);box-shadow:0 8px 24px rgba(27,59,107,.08)}
+.rstrip-ico{flex-shrink:0;width:38px;height:38px;border-radius:12px;background:var(--blue-light);color:var(--blue);display:flex;align-items:center;justify-content:center}
+.rstrip-ico svg{width:18px;height:18px}
+.rstrip-item strong{display:block;color:var(--navy-deep);font-weight:800;font-size:16px;line-height:1.1;font-family:'Outfit'}
+.rstrip-item small{font-size:11.5px;color:var(--text-m);font-weight:500;letter-spacing:.2px;display:block;margin-top:2px}
+.rstrip-stars{display:inline-flex;gap:1px;margin-right:4px;vertical-align:middle}
+.rstrip-stars svg{width:11px;height:11px;fill:#FBBF24}
+
+/* ===== SECTION BASE ===== */
+.sec{padding:70px 20px;position:relative}
+@media(min-width:768px){.sec{padding:100px 40px}}
+.sec-in{max-width:1200px;margin:0 auto}
+.sec-eye{display:inline-flex;align-items:center;gap:10px;font-family:'Outfit';font-weight:700;font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:var(--blue);margin-bottom:14px}
+.sec-eye::before{content:'';width:22px;height:2px;background:var(--blue);border-radius:1px}
+.sec h2{font-size:clamp(28px,5vw,44px);letter-spacing:-1.3px;margin-bottom:14px}
+.sec-sub{font-size:16px;line-height:1.75;color:var(--text-s);max-width:620px;margin-bottom:44px}
+
+/* ===== PROBLEM CARDS ===== */
+.sec-problem{background:var(--off-white)}
+.pgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px}
+.pcard{background:#fff;border:1px solid var(--border);border-radius:20px;padding:26px;transition:all .35s var(--ease)}
+.pcard:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(27,59,107,.08);border-color:rgba(28,163,236,.2)}
+.pcard-ico{width:48px;height:48px;border-radius:14px;background:var(--blue-light);display:flex;align-items:center;justify-content:center;margin-bottom:18px;color:var(--blue)}
+.pcard-ico svg{width:24px;height:24px}
+.pcard h3{font-size:18px;margin-bottom:8px;color:var(--navy-deep)}
+.pcard p{font-size:14px;line-height:1.65;color:var(--text-s)}
+
+/* ===== INCLUDED CHECKLIST ===== */
+.sec-incl{background:#fff}
+.incl-grid{display:grid;grid-template-columns:1fr;gap:36px;align-items:center}
+@media(min-width:900px){.incl-grid{grid-template-columns:1fr 1fr;gap:60px}}
+.incl-img{width:100%;height:auto;border-radius:24px;box-shadow:0 30px 70px rgba(27,59,107,.15)}
+.incl-list{list-style:none;display:grid;gap:14px}
+.incl-list li{display:flex;align-items:flex-start;gap:14px;padding:14px 16px;background:var(--off-white);border:1px solid var(--border);border-radius:14px;font-size:14.5px;line-height:1.5;color:var(--text)}
+.incl-list li strong{display:block;color:var(--navy-deep);font-weight:700;margin-bottom:2px}
+.incl-check{flex-shrink:0;width:26px;height:26px;border-radius:50%;background:var(--blue);display:flex;align-items:center;justify-content:center}
+.incl-check svg{width:14px;height:14px;stroke:#fff;stroke-width:2.5;fill:none}
+
+/* ===== PROCESS STEPS ===== */
+.sec-proc{background:var(--navy-deep);color:#fff;position:relative;overflow:hidden}
+.sec-proc::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 40%,rgba(28,163,236,.12),transparent 60%);pointer-events:none}
+.sec-proc h2{color:#fff}
+.sec-proc .sec-sub{color:rgba(255,255,255,.55)}
+.sec-proc .sec-in{position:relative;z-index:2}
+.pr-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
+.pr-step{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:28px;position:relative;transition:all .35s var(--ease)}
+.pr-step:hover{background:rgba(255,255,255,.06);border-color:rgba(28,163,236,.3);transform:translateY(-4px)}
+.pr-num{width:40px;height:40px;border-radius:12px;background:var(--blue);color:#fff;font-family:'Outfit';font-weight:800;font-size:16px;display:flex;align-items:center;justify-content:center;margin-bottom:18px;box-shadow:0 8px 20px var(--blue-glow)}
+.pr-step h3{color:#fff;font-size:18px;margin-bottom:8px}
+.pr-step p{font-size:13.5px;line-height:1.6;color:rgba(255,255,255,.55)}
+
+/* ===== GUARANTEE / PRICING ===== */
+.sec-guar{background:var(--off-white)}
+.guar-card{background:#fff;border:1px solid var(--border);border-radius:28px;padding:44px 32px;text-align:center;max-width:760px;margin:0 auto;position:relative;overflow:hidden}
+.guar-card::before{content:'';position:absolute;top:-80px;right:-80px;width:240px;height:240px;background:radial-gradient(circle,rgba(28,163,236,.1),transparent 70%)}
+.guar-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 16px;background:var(--blue-light);color:var(--blue);border-radius:50px;font-family:'Outfit';font-weight:700;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:18px}
+.guar-badge svg{width:14px;height:14px}
+.guar-card h2{font-size:clamp(28px,4.5vw,40px);margin-bottom:12px}
+.guar-card p{font-size:15.5px;line-height:1.7;color:var(--text-s);max-width:520px;margin:0 auto 26px}
+.guar-features{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;max-width:600px;margin:0 auto 28px}
+.guar-feat{display:flex;align-items:center;gap:10px;padding:12px;background:var(--off-white);border-radius:12px;font-size:13px;font-weight:600;color:var(--navy-deep);font-family:'Outfit'}
+.guar-feat svg{width:18px;height:18px;color:var(--blue);flex-shrink:0}
+
+/* ===== REVIEWS (marquee slider) ===== */
+.sec-rev{background:#fff;overflow:hidden}
+.testi-marquee-wrap{position:relative;margin-top:40px}
+.testi-marquee-wrap::before,.testi-marquee-wrap::after{content:'';position:absolute;top:0;bottom:0;width:60px;z-index:3;pointer-events:none}
+.testi-marquee-wrap::before{left:0;background:linear-gradient(90deg,#fff,transparent)}
+.testi-marquee-wrap::after{right:0;background:linear-gradient(-90deg,#fff,transparent)}
+.testi-row{display:flex;gap:18px;width:max-content;padding:9px 0}
+.testi-row-1{animation:testiScroll 35s linear infinite}
+.testi-row-2{animation:testiScroll 40s linear infinite reverse;margin-top:10px}
+@keyframes testiScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.testi-row:hover{animation-play-state:paused}
+@media(max-width:767px){
+  .testi-marquee-wrap::before,.testi-marquee-wrap::after{display:none}
+  .testi-row{animation:none;overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding:9px 0 18px;width:auto}
+  .testi-row::-webkit-scrollbar{display:none}
+}
+.t-card{flex-shrink:0;width:320px;background:#fff;border-radius:var(--r-lg);padding:28px 24px;border:1px solid var(--border);box-shadow:0 4px 24px rgba(27,59,107,.04);position:relative;transition:all .4s var(--ease)}
+.t-card:hover{border-color:rgba(28,163,236,.15);box-shadow:0 12px 40px rgba(27,59,107,.08);transform:translateY(-4px)}
+.t-card::before{content:'\201C';position:absolute;top:14px;right:20px;font-family:'Outfit';font-size:56px;font-weight:900;color:var(--blue);opacity:.06;line-height:1}
+.t-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+.t-stars{display:flex;gap:2px}
+.t-stars svg{width:14px;height:14px;fill:var(--blue)}
+.t-google{display:flex;align-items:center;gap:5px;font-family:'Outfit';font-weight:600;font-size:11px;color:var(--text-m)}
+.t-google svg{width:16px;height:16px}
+.t-text{font-size:14px;line-height:1.75;color:var(--text);margin-bottom:20px}
+.t-author{display:flex;align-items:center;gap:12px}
+.t-avatar{width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-family:'Outfit';font-weight:700;font-size:14px;color:#fff;flex-shrink:0}
+.t-av-1{background:linear-gradient(135deg,var(--navy),var(--navy-light))}
+.t-av-2{background:linear-gradient(135deg,var(--blue),#0E8FD4)}
+.t-av-3{background:linear-gradient(135deg,#2A7B7B,#1A5C5C)}
+.t-av-4{background:linear-gradient(135deg,#5B4A8A,#7B6BAA)}
+.t-av-5{background:linear-gradient(135deg,#8B5E3C,#A67C52)}
+.t-name{font-family:'Outfit';font-weight:600;font-size:14px;color:var(--navy-deep)}
+.t-verified{font-size:11px;color:var(--text-m);display:flex;align-items:center;gap:4px;margin-top:2px}
+.t-verified svg{width:12px;height:12px;fill:var(--blue)}
+
+/* ===== FAQ ===== */
+.sec-faq{background:var(--off-white)}
+.faq-list{max-width:820px;margin:0 auto;display:grid;gap:10px}
+.faq-item{background:#fff;border:1px solid var(--border);border-radius:14px;overflow:hidden;transition:all .3s var(--ease)}
+.faq-item[open]{border-color:rgba(28,163,236,.25);box-shadow:0 8px 24px rgba(27,59,107,.06)}
+.faq-item summary{list-style:none;padding:20px 22px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:14px;font-family:'Outfit';font-weight:700;font-size:15.5px;color:var(--navy-deep);transition:background .2s}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary:hover{background:rgba(28,163,236,.03)}
+.faq-icon{flex-shrink:0;width:26px;height:26px;border-radius:8px;background:var(--blue-light);color:var(--blue);display:flex;align-items:center;justify-content:center;transition:transform .3s var(--ease)}
+.faq-icon svg{width:12px;height:12px}
+.faq-item[open] .faq-icon{transform:rotate(45deg);background:var(--blue);color:#fff}
+.faq-body{padding:0 22px 22px;font-size:14.5px;line-height:1.75;color:var(--text-s)}
+
+/* ===== FINAL CTA ===== */
+.sec-cta{background:var(--navy-deep);color:#fff;position:relative;overflow:hidden}
+.sec-cta::before{content:'';position:absolute;inset:0;background:
+  radial-gradient(ellipse 70% 60% at 30% 30%,rgba(28,163,236,.2),transparent 60%),
+  radial-gradient(ellipse 60% 50% at 80% 70%,rgba(28,163,236,.12),transparent 60%);pointer-events:none}
+.sec-cta .sec-in{position:relative;z-index:2;text-align:center;max-width:740px}
+.sec-cta h2{color:#fff;font-size:clamp(30px,5vw,48px)}
+.sec-cta p{font-size:17px;line-height:1.7;color:rgba(255,255,255,.7);margin:16px auto 32px;max-width:560px}
+.cta-btns{display:flex;flex-wrap:wrap;gap:14px;justify-content:center}
+.cta-tel{display:inline-flex;align-items:center;gap:10px;color:#fff;font-family:'Outfit';font-weight:700;font-size:15px;padding:16px 28px;border-radius:50px;border:1.5px solid rgba(255,255,255,.2);background:rgba(255,255,255,.04);transition:all .3s var(--ease)}
+.cta-tel:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.4)}
+.cta-tel svg{width:16px;height:16px}
+
+/* ===== FOOTER MINI ===== */
+.ftr{background:var(--navy-deep);border-top:1px solid rgba(255,255,255,.06);padding:28px 20px;color:rgba(255,255,255,.5);font-size:13px;text-align:center}
+.ftr a{color:rgba(255,255,255,.7);font-weight:600}
+.ftr-links{margin-top:10px;display:flex;gap:18px;justify-content:center;flex-wrap:wrap;font-size:12px}
+
+/* ===== STICKY BAR ===== */
+.sticky-bar{position:fixed;left:0;right:0;bottom:0;z-index:999;background:rgba(12,27,51,.92);backdrop-filter:blur(20px) saturate(160%);-webkit-backdrop-filter:blur(20px) saturate(160%);border-top:1px solid rgba(255,255,255,.08);display:grid;grid-template-columns:repeat(3,1fr);padding:8px 8px calc(8px + env(safe-area-inset-bottom));gap:8px;box-shadow:0 -10px 40px rgba(0,0,0,.25)}
+.sb-btn{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;padding:10px 6px;border-radius:14px;font-family:'Outfit';font-weight:700;font-size:11px;letter-spacing:.3px;text-transform:uppercase;transition:all .25s var(--ease);cursor:pointer;border:1px solid transparent}
+.sb-btn svg{width:22px;height:22px}
+.sb-btn-off{background:var(--blue);color:#fff;box-shadow:0 6px 18px var(--blue-glow)}
+.sb-btn-tel{background:rgba(255,255,255,.06);color:#fff;border-color:rgba(255,255,255,.1)}
+.sb-btn-wa{background:#25D366;color:#fff}
+@media(min-width:768px){
+  body{padding-bottom:0}
+  .sticky-bar{left:auto;right:20px;bottom:20px;grid-template-columns:auto auto auto;gap:10px;padding:8px;border-radius:60px;background:rgba(12,27,51,.9);box-shadow:0 12px 40px rgba(0,0,0,.35)}
+  .sticky-bar .sb-btn{flex-direction:row;padding:10px 18px;font-size:12px;border-radius:50px;gap:8px}
+  .sticky-bar .sb-btn svg{width:16px;height:16px}
+}
+
+/* ===== REVEAL ===== */
+.rv{opacity:0;transform:translateY(30px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.rv.vis{opacity:1;transform:none}
+.rv-d1{transition-delay:.08s}.rv-d2{transition-delay:.16s}.rv-d3{transition-delay:.24s}.rv-d4{transition-delay:.32s}
+</style>
+</head>
+<body>
+
+<!-- LOADER -->
+<div class="loader" id="loader">
+  <div class="loader-mark"><svg viewBox="0 0 30 30" fill="none"><path d="M9 18c0-2.5 4-4.5 6-4.5s6 2 6 4.5" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/></svg></div>
+  <div class="loader-name">DakDienst<span class="dot">Service</span></div>
+  <div class="loader-track"><span></span></div>
+</div>
+
+<!-- NAV (same as homepage) -->
+<nav class="nav" id="nav">
+  <div class="nav-in">
+    <a href="index.html" class="nav-logo">
+      <svg width="34" height="34" viewBox="0 0 44 44" fill="none"><rect width="44" height="44" rx="14" fill="#1CA3EC"/><path d="M14 26c0-3 4-5.5 8-5.5s8 2.5 8 5.5" stroke="#fff" stroke-width="3" stroke-linecap="round"/></svg>
+      <span class="nav-logo-t">DakDienst<span class="dot">Service</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html#diensten" class="nav-link">Diensten</a>
+      <a href="index.html#waarom" class="nav-link">Waarom Wij</a>
+      <a href="index.html#projecten" class="nav-link">Projecten</a>
+      <a href="index.html#reviews" class="nav-link">Reviews</a>
+    </div>
+    <div style="display:flex;align-items:center">
+      <a href="#offerte-form" class="nav-cta">
+        <svg viewBox="0 0 14 14" fill="none"><path d="M11.5 2.5L2 7l3.5 1.2L9 5 6.5 9.5l1.2 3.5 3.8-10z" fill="currentColor"/></svg>
+        Offerte
+      </a>
+      <button class="nav-burger" id="navBurger" aria-label="Menu" aria-expanded="false"><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<div class="nav-scrim" id="navScrim"></div>
+<aside class="nav-drawer" id="navDrawer" aria-hidden="true">
+  <a href="index.html"><svg viewBox="0 0 18 18" fill="none"><path d="M2 8l7-6 7 6v8a1 1 0 01-1 1h-4v-5H7v5H3a1 1 0 01-1-1V8z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>Home</a>
+  <a href="index.html#diensten"><svg viewBox="0 0 18 18" fill="none"><path d="M3 6h12M3 9h12M3 12h8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>Diensten</a>
+  <a href="index.html#waarom"><svg viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="7.5" stroke="currentColor" stroke-width="1.4"/><path d="M9 5.5v4M9 12h.01" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>Waarom Wij</a>
+  <a href="index.html#reviews"><svg viewBox="0 0 18 18" fill="none"><path d="M9 1l2.4 5L17 6.7l-4 3.8 1 5.5L9 13.3 4 16l1-5.5-4-3.8 5.6-.7L9 1z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>Reviews</a>
+  <hr>
+  <a href="tel:+31640865368"><svg viewBox="0 0 18 18" fill="none"><path d="M7 10c1 2 3 4 5 5l1.5-1.5c.2-.2.5-.3.8-.2.9.3 1.8.4 2.8.4.4 0 .8.4.8.8v2.2c0 .4-.4.8-.8.8C8.1 17.5.5 10 .5 1.2c0-.4.4-.8.8-.8h2.2c.4 0 .8.4.8.8 0 1 .1 1.9.4 2.8.1.3 0 .6-.2.8L3 6.3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>06 4086 5368</a>
+  <a href="https://wa.me/31640865368" target="_blank" rel="noopener"><svg viewBox="0 0 18 18" fill="none"><path d="M9 2a7 7 0 00-5.8 10.8L2.5 16l3.4-.7A7 7 0 109 2z" stroke="currentColor" stroke-width="1.4"/></svg>WhatsApp</a>
+  <a href="#offerte-form" class="nd-cta"><svg viewBox="0 0 14 14" fill="none"><path d="M11.5 2.5L2 7l3.5 1.2L9 5 6.5 9.5l1.2 3.5 3.8-10z" fill="currentColor"/></svg>Gratis Offerte</a>
+</aside>
+
+<!-- HERO -->
+<section class="hero" id="offerte">
+  <div class="hero-bg"></div>
+  <div class="hero-in">
+    <div>
+      <div class="h-chip"><span class="pulse"></span>Specialist Dakpannen — Heel Nederland</div>
+      <h1>Dakpannen vernieuwen door <span class="accent">échte vakmensen</span>.</h1>
+      <p class="lead">Oude, lekke of versleten pannen? Wij vernieuwen uw complete pannendak vakkundig — inclusief nieuwe onderconstructie, panlatten en dampopen folie. Met 10 jaar garantie.</p>
+      <ul class="hero-bullets">
+        <li><svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#1CA3EC" stroke-width="1.4"/><path d="M6 10l3 3 5-6" stroke="#1CA3EC" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Complete aanpak: pannen, panlatten, folie én afvoer oude materialen</span></li>
+        <li><svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#1CA3EC" stroke-width="1.4"/><path d="M6 10l3 3 5-6" stroke="#1CA3EC" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Meestal binnen 1-3 werkdagen volledig opgeleverd</span></li>
+        <li><svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#1CA3EC" stroke-width="1.4"/><path d="M6 10l3 3 5-6" stroke="#1CA3EC" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span>10 jaar garantie op materiaal én arbeid</span></li>
+        <li><svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#1CA3EC" stroke-width="1.4"/><path d="M6 10l3 3 5-6" stroke="#1CA3EC" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Vaste vakploeg — geen onderaannemers</span></li>
+      </ul>
+      <div class="hero-btns">
+        <a href="#offerte-form" class="btn-p">Gratis offerte in 24u<svg viewBox="0 0 18 18" fill="none"><path d="M4 9h10M10 5l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a href="tel:+31640865368" class="btn-s"><svg viewBox="0 0 18 18" fill="none"><path d="M7 10c1 2 3 4 5 5l1.5-1.5c.2-.2.5-.3.8-.2.9.3 1.8.4 2.8.4.4 0 .8.4.8.8v2.2c0 .4-.4.8-.8.8C8.1 17.5.5 10 .5 1.2c0-.4.4-.8.8-.8h2.2c.4 0 .8.4.8.8 0 1 .1 1.9.4 2.8.1.3 0 .6-.2.8L3 6.3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>06 4086 5368</a>
+      </div>
+      <div class="hero-trust">
+        <div class="ht"><svg viewBox="0 0 20 20" fill="none"><path d="M10 1L3 4v5c0 4.5 3 8 7 9.5 4-1.5 7-5 7-9.5V4l-7-3z" stroke="#1CA3EC" stroke-width="1.4"/><path d="M7 10l2 2 4-5" stroke="#1CA3EC" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>10 jaar</strong> garantie</span></div>
+        <div class="ht"><svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="8.5" stroke="#1CA3EC" stroke-width="1.4"/><path d="M10 5v5l3 2" stroke="#1CA3EC" stroke-width="1.6" stroke-linecap="round"/></svg><span><strong>25 jaar</strong> ervaring</span></div>
+        <div class="ht"><svg viewBox="0 0 20 20" fill="none"><path d="M10 1l2.5 5.5L18 7.5l-4 4 1 5.5-5-2.8-5 2.8 1-5.5-4-4 5.5-1L10 1z" stroke="#1CA3EC" stroke-width="1.4" stroke-linejoin="round"/></svg><span><strong>4.6★</strong> op Google</span></div>
+      </div>
+    </div>
+
+    <!-- HERO FORM -->
+    <form class="hf" id="offerte-form" onsubmit="return submitForm(event)">
+      <div class="hf-eye">Gratis &amp; Vrijblijvend</div>
+      <h3>Offerte binnen 24 uur</h3>
+      <p class="hf-sub">Vul het formulier in — wij bellen u terug om uw situatie te bespreken en een vaste prijs af te geven.</p>
+      <div class="hf-row"><input type="text" name="naam" placeholder="Naam *" required></div>
+      <div class="hf-row"><input type="tel" name="tel" placeholder="Telefoonnummer *" required></div>
+      <div class="hf-row"><input type="email" name="email" placeholder="E-mail *" required></div>
+      <div class="hf-row hf-split"><input type="text" name="straat" placeholder="Straat"><input type="text" name="nr" placeholder="Nr."></div>
+      <div class="hf-row"><input type="text" name="stad" placeholder="Stad"></div>
+      <div class="hf-row"><textarea name="bericht" placeholder="Wat kunnen we voor u doen?" rows="2"></textarea></div>
+      <button type="submit" class="hf-btn">
+        <svg viewBox="0 0 18 18" fill="none"><path d="M15 3L2 9l5 2 1 5 7-13z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+        Verstuur aanvraag
+      </button>
+      <div class="hf-foot"><svg viewBox="0 0 14 14" fill="none"><path d="M7 1L1 3v4c0 3 2 5 6 7 4-2 6-4 6-7V3L7 1z" stroke="currentColor" stroke-width="1.2"/></svg>100% vrijblijvend · Geen spam</div>
+    </form>
+  </div>
+</section>
+
+<!-- REVIEW STRIP -->
+
+<!-- PROBLEM -->
+<section class="sec sec-problem">
+  <div class="sec-in">
+    <div class="sec-eye rv">Herkent u dit?</div>
+    <h2 class="rv">Wanneer is het tijd voor een nieuw pannendak?</h2>
+    <p class="sec-sub rv rv-d1">Pannen gaan decennia mee, maar niets houdt eeuwig. Deze tekenen betekenen dat het tijd wordt om te handelen — voordat de schade verder gaat.</p>
+    <div class="pgrid">
+      <div class="pcard rv rv-d1">
+        <div class="pcard-ico"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2L2 20h20L12 2z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M12 9v4M12 16h.01" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+        <h3>Scheuren &amp; breuk</h3>
+        <p>Gescheurde of gebroken pannen laten water door. Eén kleine scheur kan binnen maanden leiden tot rotte dakconstructie.</p>
+      </div>
+      <div class="pcard rv rv-d2">
+        <div class="pcard-ico"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.5"/><path d="M6 14c2 4 10 4 12 0M6 10c2-4 10-4 12 0" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+        <h3>Mos &amp; algen</h3>
+        <p>Mos houdt vocht vast en tast het oppervlak aan. Pannen verweren sneller en nokvorsten raken los.</p>
+      </div>
+      <div class="pcard rv rv-d3">
+        <div class="pcard-ico"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3v18M5 10l7-7 7 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3>Lekkage binnen</h3>
+        <p>Vochtplekken op zolder of bruine randen op het plafond? Dan is het dak al langer lek dan u denkt.</p>
+      </div>
+      <div class="pcard rv rv-d4">
+        <div class="pcard-ico"><svg viewBox="0 0 24 24" fill="none"><path d="M2 12c0-5 4-9 9-9s9 4 9 9M2 12c0 5 4 9 9 9s9-4 9-9M7 12h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+        <h3>40+ jaar oud</h3>
+        <p>Pannen gaan gemiddeld 40-60 jaar mee. Daarna verliezen ze hun waterafstotendheid en isolatiewaarde.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INCLUDED -->
+<section class="sec sec-incl">
+  <div class="sec-in">
+    <div class="incl-grid">
+      <div>
+        <div class="sec-eye rv">Wat is inbegrepen</div>
+        <h2 class="rv">Alles wat u nodig hebt, zonder verrassingen.</h2>
+        <p class="sec-sub rv rv-d1" style="margin-bottom:28px">Een nieuw pannendak is meer dan pannen vervangen. Wij leveren een compleet pakket inclusief onderconstructie en afvoer — geen meerwerk achteraf.</p>
+        <ul class="incl-list">
+          <li class="rv rv-d1"><div class="incl-check"><svg viewBox="0 0 16 16"><path d="M3 8l3 3 7-7"/></svg></div><div><strong>Demontage oude pannen</strong>Inclusief afvoer naar gecertificeerde verwerker.</div></li>
+          <li class="rv rv-d2"><div class="incl-check"><svg viewBox="0 0 16 16"><path d="M3 8l3 3 7-7"/></svg></div><div><strong>Nieuwe panlatten &amp; tengels</strong>Vers geïmpregneerd hout, haaks gelegd voor ventilatie.</div></li>
+          <li class="rv rv-d3"><div class="incl-check"><svg viewBox="0 0 16 16"><path d="M3 8l3 3 7-7"/></svg></div><div><strong>Dampopen onderdakfolie</strong>Beschermt tegen inwaaiende regen en sneeuw, ademend tegen condens.</div></li>
+          <li class="rv rv-d4"><div class="incl-check"><svg viewBox="0 0 16 16"><path d="M3 8l3 3 7-7"/></svg></div><div><strong>Keramische of betonpannen</strong>Vrij te kiezen merk en kleur — wij adviseren wat bij uw huis past.</div></li>
+          <li class="rv rv-d4"><div class="incl-check"><svg viewBox="0 0 16 16"><path d="M3 8l3 3 7-7"/></svg></div><div><strong>Nokvorsten aangesmeerd</strong>Nieuwe nokvorsten vastgezet op nokpannen-bevestiging.</div></li>
+          <li class="rv rv-d4"><div class="incl-check"><svg viewBox="0 0 16 16"><path d="M3 8l3 3 7-7"/></svg></div><div><strong>10 jaar schriftelijke garantie</strong>Op zowel materiaal als uitgevoerd werk.</div></li>
+        </ul>
+      </div>
+      <img src="img-dakpannen-vernieuwen.png" alt="Nieuw pannendak door DakDienstService" class="incl-img rv rv-d2">
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="sec sec-proc">
+  <div class="sec-in">
+    <div class="sec-eye rv">Hoe wij werken</div>
+    <h2 class="rv">Van offerte tot opgeleverd dak.</h2>
+    <p class="sec-sub rv rv-d1">Een strak proces met duidelijke afspraken — en vakmensen die hun werk verstaan.</p>
+    <div class="pr-grid">
+      <div class="pr-step rv rv-d1"><div class="pr-num">1</div><h3>Gratis inspectie</h3><p>Wij komen vrijblijvend bij u langs, maken foto's en beoordelen de staat van pannen, onderconstructie en nokvorsten.</p></div>
+      <div class="pr-step rv rv-d2"><div class="pr-num">2</div><h3>Offerte binnen 24u</h3><p>Heldere offerte met vaste prijs — geen verrassingen achteraf. Inclusief materiaalkeuze en planning.</p></div>
+      <div class="pr-step rv rv-d3"><div class="pr-num">3</div><h3>Uitvoering door vaste ploeg</h3><p>Onze eigen dakdekkers vernieuwen uw dak in 1-3 werkdagen. Netjes werken, alles opgeruimd.</p></div>
+      <div class="pr-step rv rv-d4"><div class="pr-num">4</div><h3>Oplevering &amp; garantie</h3><p>Samen oplevering met foto's van het eindresultaat en 10 jaar schriftelijke garantie.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- GUARANTEE -->
+<section class="sec sec-guar">
+  <div class="sec-in">
+    <div class="guar-card">
+      <div class="guar-badge"><svg viewBox="0 0 14 14" fill="none"><path d="M7 1L2 3v4c0 3 2 5 5 6 3-1 5-3 5-6V3L7 1z" stroke="currentColor" stroke-width="1.4"/><path d="M5 7l1.5 1.5L9.5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>10 Jaar Garantie</div>
+      <h2>Vakwerk waar u jaren profijt van heeft.</h2>
+      <p>Een nieuw pannendak is een grote investering. Daarom geven wij 10 jaar schriftelijke garantie — op zowel materiaal als arbeid. Geen kleine lettertjes, gewoon duidelijk op papier.</p>
+      <div class="guar-features">
+        <div class="guar-feat"><svg viewBox="0 0 18 18" fill="none"><path d="M3 9l4 4 8-9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Vaste prijs vooraf</div>
+        <div class="guar-feat"><svg viewBox="0 0 18 18" fill="none"><path d="M3 9l4 4 8-9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Eigen vakploeg</div>
+        <div class="guar-feat"><svg viewBox="0 0 18 18" fill="none"><path d="M3 9l4 4 8-9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>VCA gecertificeerd</div>
+        <div class="guar-feat"><svg viewBox="0 0 18 18" fill="none"><path d="M3 9l4 4 8-9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Foto rapportage</div>
+      </div>
+      <a href="#offerte-form" class="btn-p">Vraag gratis offerte aan<svg viewBox="0 0 18 18" fill="none"><path d="M4 9h10M10 5l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="sec sec-rev">
+  <div class="sec-in">
+    <div class="sec-eye rv">Wat klanten zeggen</div>
+    <h2 class="rv">75 echte Google reviews — gemiddeld 4.6 sterren.</h2>
+    <p class="sec-sub rv rv-d1">Echte Google reviews van klanten die we geholpen hebben.</p>
+    <div class="testi-marquee-wrap rv rv-d2">
+      <div class="testi-row testi-row-1" id="trow1"></div>
+      <div class="testi-row testi-row-2" id="trow2"></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec sec-faq">
+  <div class="sec-in">
+    <div class="sec-eye rv">Veelgestelde vragen</div>
+    <h2 class="rv">Alles wat u wilt weten over dakpannen vernieuwen.</h2>
+    <p class="sec-sub rv rv-d1">Nog een vraag die hier niet tussen staat? Bel ons gerust — we helpen u graag verder.</p>
+    <div class="faq-list">
+      <details class="faq-item rv rv-d1" open>
+        <summary>Hoe lang duurt het vernieuwen van een pannendak?<span class="faq-icon"><svg viewBox="0 0 12 12"><path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span></summary>
+        <div class="faq-body">Voor een gemiddelde rijtjeswoning rekenen we op 1-2 werkdagen. Voor vrijstaande woningen of complexere daken meestal 2-4 dagen. Bij de offerte geven we een exacte planning.</div>
+      </details>
+      <details class="faq-item rv rv-d2">
+        <summary>Wat kost het om dakpannen te vernieuwen?<span class="faq-icon"><svg viewBox="0 0 12 12"><path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span></summary>
+        <div class="faq-body">Afhankelijk van dakoppervlak, toegankelijkheid en materiaalkeuze. Gemiddeld rekent u op €80-€150 per m² inclusief materiaal, arbeid, afvoer en BTW. Een vrijblijvende offerte geeft u de exacte prijs binnen 24 uur.</div>
+      </details>
+      <details class="faq-item rv rv-d3">
+        <summary>Welke garantie krijg ik?<span class="faq-icon"><svg viewBox="0 0 12 12"><path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span></summary>
+        <div class="faq-body">10 jaar schriftelijke garantie op zowel materiaal als arbeid. Op de pannen zelf zit vaak nog aanvullend fabrieksgarantie tot 30 jaar. Alles duidelijk vastgelegd in de offerte en opleverdocumenten.</div>
+      </details>
+      <details class="faq-item rv rv-d3">
+        <summary>Kunnen jullie ook bij slecht weer werken?<span class="faq-icon"><svg viewBox="0 0 12 12"><path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span></summary>
+        <div class="faq-body">Bij stortregen of harde wind stoppen we voor veiligheid. Het dak wordt dan altijd waterdicht afgedekt met zeilen zodat er geen lekkage ontstaat. Zodra het kan, pakken we direct weer op.</div>
+      </details>
+      <details class="faq-item rv rv-d3">
+        <summary>Mag ik zelf de pannen kiezen?<span class="faq-icon"><svg viewBox="0 0 12 12"><path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span></summary>
+        <div class="faq-body">Absoluut. U kiest zelf merk, type (keramisch of beton) en kleur. Wij geven graag advies over wat past bij uw woning en budget, maar de keuze is aan u.</div>
+      </details>
+      <details class="faq-item rv rv-d3">
+        <summary>Werken jullie in heel Nederland?<span class="faq-icon"><svg viewBox="0 0 12 12"><path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span></summary>
+        <div class="faq-body">Ja. We zitten in Breukelen maar werken door heel Nederland. Geen voorrijkosten voor inspectie en offerte.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="sec sec-cta">
+  <div class="sec-in">
+    <div class="sec-eye rv" style="color:#7DD3FC;justify-content:center">Klaar voor een nieuw dak?</div>
+    <h2 class="rv">Vraag vandaag nog uw gratis offerte aan.</h2>
+    <p class="rv rv-d1">Binnen 24 uur heeft u een heldere offerte met vaste prijs. Geheel vrijblijvend — u zit nergens aan vast.</p>
+    <div class="cta-btns">
+      <a href="#offerte-form" class="btn-p">Gratis offerte aanvragen<svg viewBox="0 0 18 18" fill="none"><path d="M4 9h10M10 5l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a href="tel:+31640865368" class="cta-tel"><svg viewBox="0 0 18 18" fill="none"><path d="M7 10c1 2 3 4 5 5l1.5-1.5c.2-.2.5-.3.8-.2.9.3 1.8.4 2.8.4.4 0 .8.4.8.8v2.2c0 .4-.4.8-.8.8C8.1 17.5.5 10 .5 1.2c0-.4.4-.8.8-.8h2.2c.4 0 .8.4.8.8 0 1 .1 1.9.4 2.8.1.3 0 .6-.2.8L3 6.3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>Direct bellen: 06 4086 5368</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER (same as homepage) -->
+<footer class="footer">
+  <div class="footer-accent"></div>
+  <div class="footer-in">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand">
+          <svg width="32" height="32" viewBox="0 0 44 44" fill="none"><rect width="44" height="44" rx="14" fill="#1CA3EC"/><path d="M14 26c0-3 4-5.5 8-5.5s8 2.5 8 5.5" stroke="#fff" stroke-width="3" stroke-linecap="round"/></svg>
+          <span class="footer-bt">DakDienst<span class="dot">Service</span></span>
+        </div>
+        <p class="footer-desc">Uw betrouwbare partner voor alles rondom uw dak. Vakmanschap, eerlijk advies en kwaliteit die u ziet.</p>
+        <a href="#offerte-form" class="footer-cta">
+          <svg viewBox="0 0 14 14" fill="none"><path d="M11.5 2.5L2 7l3.5 1.2L9 5 6.5 9.5l1.2 3.5 3.8-10z" fill="currentColor"/></svg>
+          Gratis Offerte
+        </a>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4>Diensten</h4>
+          <a href="index.html#diensten">Dak en Gevel</a>
+          <a href="index.html#diensten">Daklekkage</a>
+          <a href="index.html#diensten">Dakreparaties</a>
+          <a href="index.html#diensten">Dakisolatie</a>
+          <a href="index.html#diensten">Plat Dak</a>
+          <a href="index.html#diensten">Dakgoot</a>
+        </div>
+        <div class="footer-col">
+          <h4>Openingstijden</h4>
+          <div class="footer-time"><span class="footer-time-dot"></span>24/7 Geopend</div>
+          <div class="footer-time"><span class="footer-time-dot"></span>Ook in het weekend</div>
+          <div class="footer-time"><span class="footer-time-dot"></span>Spoed? Direct bellen</div>
+        </div>
+        <div class="footer-col footer-col-full">
+          <h4>Contact</h4>
+          <a href="tel:+31640865368"><svg class="fi" viewBox="0 0 16 16" fill="none"><path d="M6.6 9.4c1 1.8 2.6 3.4 4.4 4.4l1.4-1.4c.2-.2.4-.2.6-.1.7.2 1.4.4 2.2.4.3 0 .6.3.6.6v2c0 .3-.3.6-.6.6C7 16 0 9 0 .8 0 .5.3.2.6.2h2c.3 0 .6.3.6.6 0 .8.1 1.5.4 2.2.1.2 0 .4-.1.6L2 5" stroke="currentColor" stroke-width="1.2"/></svg>06 4086 5368</a>
+          <a href="mailto:info@dakdienstservice.nl"><svg class="fi" viewBox="0 0 16 16" fill="none"><rect x="1" y="3.5" width="14" height="9" rx="2" stroke="currentColor" stroke-width="1.2"/><path d="M1 5l7 4.5L15 5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>info@dakdienstservice.nl</a>
+          <a href="https://wa.me/31640865368" target="_blank" rel="noopener"><svg class="fi" viewBox="0 0 16 16" fill="none"><path d="M8 1C4.1 1 1 4.1 1 8c0 1.3.3 2.5 1 3.5L1 15l3.6-1c1 .6 2.1.9 3.4.9 3.9 0 7-3.1 7-7s-3.1-7-7-7z" stroke="currentColor" stroke-width="1.2"/></svg>WhatsApp</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bot">
+      <div class="footer-copy">&copy; 2025 DakDienstService · Dakdekker in heel Nederland · KvK 80900488</div>
+      <div class="footer-legal">
+        <a href="index.html">Home</a>
+        <a href="index.html#diensten">Diensten</a>
+        <a href="index.html#reviews">Reviews</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- STICKY BAR -->
+<div class="sticky-bar">
+  <a href="#offerte-form" class="sb-btn sb-btn-off"><svg viewBox="0 0 22 22" fill="none"><path d="M18 4L2 11l6 2 2 6 8-15z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" fill="currentColor"/></svg>Offerte</a>
+  <a href="tel:+31640865368" class="sb-btn sb-btn-tel"><svg viewBox="0 0 22 22" fill="none"><path d="M9 13c1.4 2.5 3.5 4.6 6 6l2-2c.3-.3.6-.3.9-.2 1 .3 2 .5 3.1.5.5 0 .9.4.9.9V21c0 .5-.4.9-.9.9C10 22 0 12 0 1.1 0 .6.4.2.9.2H4c.5 0 .9.4.9.9 0 1.1.2 2.1.5 3.1.1.3 0 .6-.2.9L3 7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Bel ons</a>
+  <a href="https://wa.me/31640865368" target="_blank" rel="noopener" class="sb-btn sb-btn-wa"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>WhatsApp</a>
+</div>
+
+<script>
+// Loader + grand entrance
+window.addEventListener('load',()=>{
+  setTimeout(()=>{
+    document.getElementById('loader').classList.add('done');
+    setTimeout(()=>{
+      document.querySelector('.hero').classList.add('entered');
+      document.querySelector('.nav').classList.add('entered');
+    },180);
+  },1400);
+});
+// Nav scroll state
+window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('scrolled',scrollY>60),{passive:true});
+
+// Mobile nav drawer
+(function(){
+  const b=document.getElementById('navBurger'),d=document.getElementById('navDrawer'),s=document.getElementById('navScrim');
+  if(!b)return;
+  function open(){b.classList.add('open');d.classList.add('open');s.classList.add('open');document.body.classList.add('nav-open');b.setAttribute('aria-expanded','true')}
+  function close(){b.classList.remove('open');d.classList.remove('open');s.classList.remove('open');document.body.classList.remove('nav-open');b.setAttribute('aria-expanded','false')}
+  b.addEventListener('click',()=>b.classList.contains('open')?close():open());
+  s.addEventListener('click',close);
+  d.querySelectorAll('a').forEach(a=>a.addEventListener('click',close));
+  document.addEventListener('keydown',e=>e.key==='Escape'&&close());
+})();
+
+// Scroll reveal
+const io=new IntersectionObserver((es)=>es.forEach(e=>e.isIntersecting&&e.target.classList.add('vis')),{threshold:.1});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+// Build reviews marquee
+const _reviews=[
+  {n:'Eddie Duikersloot',av:1,t:"Dakdienstservice kon snel aan de slag en kwam direct langs om de lekkage te beoordelen. Het team werkte netjes en professioneel en ruimde alles na afloop keurig op. Zeer tevreden over de service en het resultaat."},
+  {n:'Natasja v.d. Weijden',av:2,t:"Gebeld met DakDienstService daar het dakkapel lekte. De volgende dag hebben ze de lekkage al verholpen. Prima bereikbaar en legt alles duidelijk uit. Met foto's laten zien waar het probleem zat en hoe ze het opgelost hebben."},
+  {n:'Robyn',av:3,t:"Erg blij met de expertise! Foto's vooraf, tijdens en achteraf worden gemaakt wat de betrouwbaarheid zeker vergroot. Bedankt!!"},
+  {n:'Jeroen Bouma',av:4,t:"Zeer vriendelijke lui. Ze leggen uit wat ze doen en waarom. Mijn pannendak is volledig gerenoveerd: houten geraamte, dampwerend folie, keramische pannen, vogelwering, alles. Goede value for money."},
+  {n:'Wil Wor',av:5,t:"Fijne mensen. Houden zich aan de afspraak. Werken netjes. Ruimen zelfs alle rommel op die gemaakt is. Mocht er nog eens iets zijn aan mijn dak dan weet ik waar ik moet zijn."}
+];
+const _star='<svg viewBox="0 0 14 14"><path d="M7 0l2.16 4.38L14 5.09l-3.5 3.41.83 4.82L7 11.15l-4.33 2.17.83-4.82L0 5.09l4.84-.71L7 0z"/></svg>';
+const _google='<svg viewBox="0 0 16 16"><path d="M15.68 8.18c0-.57-.05-1.11-.15-1.64H8v3.1h4.3a3.68 3.68 0 01-1.6 2.41v2h2.6c1.52-1.4 2.38-3.46 2.38-5.87z" fill="#4285F4"/><path d="M8 16c2.16 0 3.97-.72 5.3-1.94l-2.6-2a4.8 4.8 0 01-7.18-2.52H.9v2.06A8 8 0 008 16z" fill="#34A853"/><path d="M3.52 9.52a4.8 4.8 0 010-3.04V4.42H.9a8 8 0 000 7.16l2.62-2.06z" fill="#FBBC05"/><path d="M8 3.16a4.33 4.33 0 013.07 1.2l2.3-2.3A7.73 7.73 0 008 0 8 8 0 00.9 4.42l2.62 2.06A4.77 4.77 0 018 3.16z" fill="#EA4335"/></svg>';
+const _check='<svg viewBox="0 0 12 12"><path d="M6 0a6 6 0 110 12A6 6 0 016 0zm2.8 4.2L5.5 7.5 3.7 5.7l-.7.7 2.5 2.5 4-4-.7-.7z"/></svg>';
+function _card(r){return `<div class="t-card"><div class="t-top"><div class="t-stars">${_star.repeat(5)}</div><div class="t-google">${_google}Google</div></div><p class="t-text">"${r.t}"</p><div class="t-author"><div class="t-avatar t-av-${r.av}">${r.n[0]}</div><div><div class="t-name">${r.n}</div><div class="t-verified">${_check}Geverifieerde review</div></div></div></div>`}
+const _html=[..._reviews,..._reviews].map(_card).join('');
+document.getElementById('trow1').innerHTML=_html;
+document.getElementById('trow2').innerHTML=_html;
+
+// Mobile: pause CSS animation on touch + JS autoscroll that continues after swipe
+(function(){
+  const mq=window.matchMedia('(max-width:767px)');
+  const rows=document.querySelectorAll('.testi-row');
+  const state=new Map();
+  rows.forEach(row=>{
+    const dir=row.classList.contains('testi-row-2')?-1:1;
+    state.set(row,{resumeAt:0,dir,speed:0.5,pos:0});
+    row.addEventListener('touchstart',()=>{state.get(row).resumeAt=Date.now()+2500},{passive:true});
+    row.addEventListener('touchmove',()=>{state.get(row).resumeAt=Date.now()+2500;state.get(row).pos=row.scrollLeft},{passive:true});
+  });
+  let last=performance.now();
+  function tick(now){
+    const dt=Math.min(now-last,50);last=now;
+    if(mq.matches){
+      rows.forEach(row=>{
+        const s=state.get(row);
+        if(Date.now()<s.resumeAt){s.pos=row.scrollLeft;return}
+        const max=row.scrollWidth-row.clientWidth;
+        if(max<=0)return;
+        s.pos+=s.speed*s.dir*(dt/16);
+        if(s.pos>=max)s.pos=0;
+        else if(s.pos<0)s.pos=max;
+        row.scrollLeft=s.pos;
+      });
+    }
+    requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+})();
+
+// Topbar scroll state (subtle shadow already via bg)
+// Form submit UI feedback (wire to real backend/service)
+function submitForm(e){
+  e.preventDefault();
+  const f=e.target;
+  const b=f.querySelector('.hf-btn');
+  const orig=b.innerHTML;
+  b.innerHTML='<svg viewBox="0 0 18 18" fill="none"><path d="M4 9l3 3 7-7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg> Verzonden!';
+  b.style.background='#22C55E';
+  setTimeout(()=>{f.reset();b.innerHTML=orig;b.style.background=''},2800);
+  return false;
+}
+
+// Scroll to top on refresh
+if('scrollRestoration' in history){history.scrollRestoration='manual'}
+window.addEventListener('beforeunload',()=>window.scrollTo(0,0));
+</script>
+
+<!-- Schema.org -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Service",
+  "serviceType":"Dakpannen vernieuwen",
+  "provider":{
+    "@type":"RoofingContractor",
+    "name":"DakDienstService",
+    "telephone":"+31640865368",
+    "email":"info@dakdienstservice.nl",
+    "address":{"@type":"PostalAddress","addressCountry":"NL"},
+    "areaServed":"Nederland",
+    "aggregateRating":{"@type":"AggregateRating","ratingValue":"4.6","reviewCount":"75"}
+  },
+  "areaServed":"Nederland",
+  "description":"Compleet vernieuwen van pannendaken inclusief panlatten, folie en afvoer. 10 jaar garantie op materiaal en arbeid."
+}
+</script>
+
+</body>
+</html>
