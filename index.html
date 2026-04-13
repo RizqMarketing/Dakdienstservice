@@ -143,6 +143,33 @@ img{max-width:100%;display:block}a{text-decoration:none;color:inherit}
 
 .hero-content{position:relative;z-index:5;max-width:700px}
 
+/* Hero trust mini-row (desktop only) */
+.hero-trust{display:none;gap:24px;margin-top:32px;flex-wrap:wrap}
+.ht-item{display:flex;align-items:center;gap:8px;font-family:'Outfit';font-weight:600;font-size:13px;color:rgba(255,255,255,.75)}
+.ht-item svg{width:18px;height:18px;flex-shrink:0}
+
+/* Hero inline offerte form */
+.hero-form{display:none;position:relative;z-index:5;width:100%;max-width:420px;background:rgba(255,255,255,.06);backdrop-filter:blur(24px) saturate(160%);-webkit-backdrop-filter:blur(24px) saturate(160%);border:1px solid rgba(255,255,255,.12);border-radius:24px;padding:28px;box-shadow:0 24px 60px rgba(0,0,0,.35),0 0 0 1px rgba(28,163,236,.08) inset;opacity:0;transform:translateY(30px) scale(.98);transition:opacity .9s var(--ease) .8s,transform .9s var(--ease) .8s}
+.hero.entered .hero-form{opacity:1;transform:none}
+.hf-head{margin-bottom:20px}
+.hf-eye{display:inline-flex;align-items:center;gap:8px;font-family:'Outfit';font-weight:700;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--orange);margin-bottom:10px}
+.hf-eye .dot-pulse{width:6px;height:6px;position:relative}
+.hf-eye .dot-pulse::before{content:'';position:absolute;inset:0;border-radius:50%;background:var(--orange)}
+.hf-title{font-family:'Outfit';font-weight:800;font-size:26px;color:#fff;letter-spacing:-1px;margin-bottom:6px;line-height:1.1}
+.hf-sub{font-size:13px;line-height:1.55;color:rgba(255,255,255,.55)}
+.hf-row{margin-bottom:10px}
+.hf-row input,.hf-row select,.hf-row textarea{width:100%;padding:12px 14px;border:1px solid rgba(255,255,255,.1);border-radius:10px;font-family:'DM Sans';font-size:13.5px;color:#fff;background:rgba(255,255,255,.05);transition:all .25s var(--ease);outline:none;-webkit-appearance:none;appearance:none;resize:none}
+.hf-row input::placeholder,.hf-row textarea::placeholder{color:rgba(255,255,255,.4)}
+.hf-row input:focus,.hf-row select:focus,.hf-row textarea:focus{border-color:var(--orange);background:rgba(255,255,255,.08);box-shadow:0 0 0 3px rgba(28,163,236,.15)}
+.hf-row-split{display:grid;grid-template-columns:1fr 80px;gap:8px}
+.hf-row select{color:rgba(255,255,255,.65);background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none'><path d='M1 1l5 5 5-5' stroke='%23ffffff80' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/></svg>");background-repeat:no-repeat;background-position:right 16px center;padding-right:40px}
+.hf-row select option{background:var(--navy-deep);color:#fff}
+.hf-btn{width:100%;display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--orange);color:#fff;font-family:'Outfit';font-weight:700;font-size:14px;padding:15px 20px;border:none;border-radius:12px;cursor:pointer;box-shadow:0 8px 24px var(--orange-glow);transition:all .25s var(--ease);margin-top:6px}
+.hf-btn svg{width:16px;height:16px}
+.hf-btn:hover{transform:translateY(-2px);box-shadow:0 12px 32px var(--orange-glow-s)}
+.hf-foot{display:flex;align-items:center;justify-content:center;gap:6px;font-size:11px;color:rgba(255,255,255,.45);margin-top:14px}
+.hf-foot svg{width:12px;height:12px}
+
 /* ===== GRAND ENTRANCE SEQUENCE ===== */
 
 /* Everything starts hidden + transformed */
@@ -608,7 +635,12 @@ img{max-width:100%;display:block}a{text-decoration:none;color:inherit}
 .sb-btn-wa{background:#25D366;color:#fff;box-shadow:0 6px 18px rgba(37,211,102,.35)}
 .sb-btn-wa:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(37,211,102,.5)}
 body{padding-bottom:86px}
-@media(min-width:768px){body{padding-bottom:92px}}
+@media(min-width:768px){
+  body{padding-bottom:0}
+  .sticky-bar{left:auto;right:20px;bottom:20px;grid-template-columns:auto auto auto;gap:10px;padding:8px;border-radius:60px;background:rgba(12,27,51,.85);box-shadow:0 12px 40px rgba(0,0,0,.25)}
+  .sticky-bar .sb-btn{flex-direction:row;padding:10px 18px;font-size:12px;border-radius:50px;gap:8px}
+  .sticky-bar .sb-btn svg{width:16px;height:16px}
+}
 
 /* ===== DESKTOP ===== */
 @media(min-width:640px){
@@ -623,7 +655,12 @@ body{padding-bottom:86px}
 @media(min-width:1024px){
   .nav{padding:20px 48px}.nav.scrolled{padding:14px 48px}
   .nav-links{display:flex}
-  .hero{padding:140px 48px 100px}
+  .hero{padding:140px 48px 100px;flex-direction:row;align-items:center;gap:60px}
+  .hero>.hero-bg,.hero>.hero-aurora,.hero>.hero-streaks,.hero>.hero-particles{flex:unset}
+  .hero-content{flex:1 1 auto;max-width:640px;margin-left:auto}
+  .hero-trust{display:flex}
+  .hero-form{display:block;flex:0 0 420px;margin-right:auto}
+  .hero h1{font-size:clamp(44px,6vw,76px)}
   .hero-metrics-in{grid-template-columns:1fr auto 1fr auto 1fr;padding:36px 48px;gap:40px;align-items:center}
   .hm-num{font-size:46px}
   .hm-divider{display:block;width:1px;height:50px;background:rgba(255,255,255,.1)}
@@ -741,6 +778,49 @@ body{padding-bottom:86px}
         <svg viewBox="0 0 18 18" fill="none"><path d="M4 9h10M10 5l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
       <a href="#diensten" class="btn-s">Onze Diensten</a>
+    </div>
+
+    <!-- Hero trust row (desktop only) -->
+    <div class="hero-trust">
+      <div class="ht-item"><svg viewBox="0 0 18 18" fill="none"><path d="M9 1L3 4v5c0 4 2.5 7 6 8.5C12.5 16 15 13 15 9V4L9 1z" stroke="#1CA3EC" stroke-width="1.4"/><path d="M6.5 9l2 2 3-3.5" stroke="#1CA3EC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>10 Jaar Garantie</span></div>
+      <div class="ht-item"><svg viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="7.5" stroke="#1CA3EC" stroke-width="1.4"/><path d="M9 4v5l3 2" stroke="#1CA3EC" stroke-width="1.5" stroke-linecap="round"/></svg><span>24/7 Bereikbaar</span></div>
+      <div class="ht-item"><svg viewBox="0 0 18 18" fill="none"><path d="M2 14l5-5 3 3 6-7" stroke="#1CA3EC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M11 5h5v5" stroke="#1CA3EC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>4.9★ op Google</span></div>
+    </div>
+  </div>
+
+  <!-- Hero inline form (desktop only) -->
+  <form class="hero-form" id="heroForm" onsubmit="heroSubmit(event)">
+    <div class="hf-head">
+      <div class="hf-eye"><span class="dot-pulse"></span>Gratis &amp; Vrijblijvend</div>
+      <h3 class="hf-title">Offerte binnen 24u</h3>
+      <p class="hf-sub">Laat uw gegevens achter — wij bellen u terug voor een gratis dakinspectie.</p>
+    </div>
+    <div class="hf-row">
+      <input type="text" placeholder="Naam *" required>
+    </div>
+    <div class="hf-row">
+      <input type="tel" placeholder="Telefoonnummer *" required>
+    </div>
+    <div class="hf-row">
+      <input type="email" placeholder="E-mail *" required>
+    </div>
+    <div class="hf-row hf-row-split">
+      <input type="text" placeholder="Straat">
+      <input type="text" placeholder="Nr." class="hf-nr">
+    </div>
+    <div class="hf-row">
+      <input type="text" placeholder="Stad">
+    </div>
+    <div class="hf-row">
+      <textarea placeholder="Wat kunnen we voor u doen?" rows="2"></textarea>
+    </div>
+    <button type="submit" class="hf-btn">
+      <svg viewBox="0 0 18 18" fill="none"><path d="M15 3L2 9l5 2 1 5 7-13z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+      Offerte aanvragen
+    </button>
+    <div class="hf-foot">
+      <svg viewBox="0 0 14 14" fill="none"><path d="M7 1L1 3v4c0 3 2 5 6 7 4-2 6-4 6-7V3L7 1z" stroke="currentColor" stroke-width="1.2"/></svg>
+      Geen spam · 100% vrijblijvend
     </div>
 
 
@@ -1189,31 +1269,36 @@ body{padding-bottom:86px}
           </div>
         </div>
         <div class="form-group">
-          <label>E-mailadres</label>
+          <label>E-mailadres <span class="req">*</span></label>
           <div class="form-input-wrap">
             <svg class="form-ico" viewBox="0 0 16 16" fill="none"><rect x="1" y="3.5" width="14" height="9" rx="2" stroke="currentColor" stroke-width="1.2"/><path d="M1 5l7 4.5L15 5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
-            <input type="email" placeholder="uw@email.nl">
+            <input type="email" placeholder="uw@email.nl" required>
           </div>
         </div>
-        <div class="form-group"><label>Type dakwerk</label>
-          <select>
-            <option value="">Selecteer een dienst...</option>
-            <option>Dak en Gevel</option>
-            <option>Daklekkage</option>
-            <option>Lood en Zink</option>
-            <option>Stormschade</option>
-            <option>Dakinspectie</option>
-            <option>Dakreparaties</option>
-            <option>Dakpannen (Vernieuwen)</option>
-            <option>Plat Dak Vernieuwen</option>
-            <option>Dakisolatie</option>
-            <option>Dakgoot</option>
-            <option>Schoorsteen</option>
-            <option>Nokvorsten</option>
-            <option>Anders</option>
-          </select>
+        <div class="form-group">
+          <label>Stad</label>
+          <div class="form-input-wrap">
+            <svg class="form-ico" viewBox="0 0 16 16" fill="none"><path d="M8 1C5 1 2.5 3.5 2.5 6.5 2.5 10 8 15 8 15s5.5-5 5.5-8.5C13.5 3.5 11 1 8 1z" stroke="currentColor" stroke-width="1.2"/><circle cx="8" cy="6.5" r="2" stroke="currentColor" stroke-width="1.2"/></svg>
+            <input type="text" placeholder="Bijv. Breukelen">
+          </div>
         </div>
-        <div class="form-group"><label>Omschrijving</label><textarea placeholder="Beschrijf kort uw situatie of wensen..."></textarea></div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Straat</label>
+            <div class="form-input-wrap">
+              <svg class="form-ico" viewBox="0 0 16 16" fill="none"><path d="M2 14h12M4 14V6l4-3 4 3v8M7 14v-4h2v4" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg>
+              <input type="text" placeholder="Straatnaam">
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Huisnummer</label>
+            <div class="form-input-wrap">
+              <svg class="form-ico" viewBox="0 0 16 16" fill="none"><path d="M5 4h1v8H5zM7 4h2l1 8H8zM11 4h1v8h-1z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg>
+              <input type="text" placeholder="12a">
+            </div>
+          </div>
+        </div>
+        <div class="form-group"><label>Wat kunnen we voor u doen?</label><textarea placeholder="Beschrijf kort uw situatie of wensen..."></textarea></div>
         <button type="submit" class="form-submit">
           Verstuur Aanvraag
           <svg viewBox="0 0 18 18" fill="none"><path d="M4 9h10M10 5l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -1363,27 +1448,25 @@ document.querySelectorAll('.testi-row').forEach(row=>{
   const rows=document.querySelectorAll('.testi-row');
   if(!rows.length)return;
   const state=new Map();
-  rows.forEach((row,i)=>{
+  rows.forEach(row=>{
     const dir=row.classList.contains('testi-row-2')?-1:1;
-    const speed=dir>0?0.4:0.35;
-    state.set(row,{paused:false,resumeAt:0,dir,speed});
-    const pause=()=>{const s=state.get(row);s.paused=true;s.resumeAt=Date.now()+2500};
-    row.addEventListener('touchstart',pause,{passive:true});
-    row.addEventListener('pointerdown',pause);
-    row.addEventListener('wheel',pause,{passive:true});
+    state.set(row,{resumeAt:0,dir,speed:0.5,pos:0});
+    row.addEventListener('touchstart',()=>{state.get(row).resumeAt=Date.now()+2500},{passive:true});
+    row.addEventListener('touchmove',()=>{state.get(row).resumeAt=Date.now()+2500;state.get(row).pos=row.scrollLeft},{passive:true});
   });
-  function tick(){
+  let last=performance.now();
+  function tick(now){
+    const dt=Math.min(now-last,50);last=now;
     if(mq.matches){
       rows.forEach(row=>{
         const s=state.get(row);
-        if(s.paused&&Date.now()<s.resumeAt)return;
-        s.paused=false;
+        if(Date.now()<s.resumeAt){s.pos=row.scrollLeft;return}
         const max=row.scrollWidth-row.clientWidth;
         if(max<=0)return;
-        let next=row.scrollLeft+s.speed*s.dir;
-        if(next>=max-1){next=0}
-        else if(next<=0&&s.dir<0){next=max-1}
-        row.scrollLeft=next;
+        s.pos+=s.speed*s.dir*(dt/16);
+        if(s.pos>=max){s.pos=0}
+        else if(s.pos<0){s.pos=max}
+        row.scrollLeft=s.pos;
       });
     }
     requestAnimationFrame(tick);
@@ -1391,6 +1474,16 @@ document.querySelectorAll('.testi-row').forEach(row=>{
   requestAnimationFrame(tick);
 })();
 
+// ===== HERO FORM =====
+function heroSubmit(e){
+  e.preventDefault();
+  const form=e.target;
+  const btn=form.querySelector('.hf-btn');
+  const orig=btn.innerHTML;
+  btn.innerHTML='<svg viewBox="0 0 18 18" fill="none"><path d="M4 9l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Verzonden!';
+  btn.style.background='#22C55E';
+  setTimeout(()=>{form.reset();btn.innerHTML=orig;btn.style.background=''},2500);
+}
 // ===== POPUP FORM =====
 function openModal(e){if(e)e.preventDefault();document.getElementById('formModal').classList.add('open');document.body.style.overflow='hidden'}
 function closeModal(){document.getElementById('formModal').classList.remove('open');document.body.style.overflow=''}
