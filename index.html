@@ -375,7 +375,7 @@ body.nav-open{overflow:hidden}
 .show-ico{width:44px;height:44px;margin:0 auto 14px;border-radius:14px;background:rgba(28,163,236,.08);border:1px solid rgba(28,163,236,.1);display:flex;align-items:center;justify-content:center}
 .show-ico svg{width:22px;height:22px}
 
-.show-num{font-family:'Outfit';font-weight:900;font-size:clamp(38px,8vw,56px);color:#fff;letter-spacing:-2px;line-height:1;white-space:nowrap}
+.show-num{font-family:'Outfit';font-weight:900;font-size:clamp(38px,8vw,56px);color:#fff;letter-spacing:-2px;line-height:1;white-space:nowrap;font-variant-numeric:tabular-nums;display:inline-flex;align-items:baseline;justify-content:center;min-width:8ch}
 .show-num .acc{color:var(--orange);font-size:.48em;font-weight:700;letter-spacing:0;margin-left:4px;vertical-align:middle}
 
 .show-lbl{font-size:12px;color:rgba(255,255,255,.4);margin-top:8px;font-weight:500;font-family:'Outfit';letter-spacing:.5px;text-transform:uppercase}
@@ -465,6 +465,7 @@ body.nav-open{overflow:hidden}
 @media(max-width:767px){
   .testi-row{animation:none;overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding:9px 0 18px;width:auto}
   .testi-row::-webkit-scrollbar{display:none}
+  .testi-row-2{display:none}
 }
 
 .t-card{flex-shrink:0;width:320px;background:var(--white);border-radius:var(--r-lg);padding:28px 24px;border:1px solid var(--border);box-shadow:0 4px 24px rgba(27,59,107,.04);position:relative;transition:all .4s var(--ease)}
@@ -1400,7 +1401,6 @@ body{padding-bottom:86px}
 
 <script>
 if('scrollRestoration' in history){history.scrollRestoration='manual'}
-window.addEventListener('beforeunload',()=>window.scrollTo(0,0));
 // ===== LOADER + GRAND ENTRANCE =====
 window.addEventListener('load',()=>{
   setTimeout(()=>{
