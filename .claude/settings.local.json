@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cp \"/c/Users/mazin/Downloads/Blogpost-Dakdienst-25.png\" \"/c/Users/mazin/Dakdienst NIEUW/img-dakisolatie.png\")",
+      "Read(//c/Users/mazin/Dakdienst NIEUW/**)"
+    ]
+  }
+}
