@@ -865,5 +865,32 @@ window.addEventListener('beforeunload',()=>window.scrollTo(0,0));
 }
 </script>
 
+<!-- COOKIE BANNER -->
+<div class="cookie-banner" id="cookieBanner" role="dialog" aria-live="polite" aria-label="Cookie melding">
+  <div class="cookie-text"><strong>Cookies op deze website</strong>Wij gebruiken uitsluitend functionele cookies om de site goed te laten werken. Geen tracking of advertentiecookies. <a href="privacy-cookies.html">Lees meer</a></div>
+  <button class="cookie-ok" onclick="acceptCookies()">Akkoord</button>
+</div>
+<style>
+.cookie-banner{position:fixed;left:16px;right:16px;bottom:16px;max-width:520px;margin-left:auto;margin-right:auto;background:#0F1A30;color:#fff;border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:16px 18px;display:none;align-items:center;gap:14px;font-family:'DM Sans',sans-serif;font-size:13.5px;line-height:1.45;z-index:10000;box-shadow:0 20px 50px rgba(0,0,0,.35);animation:cookieSlide .4s cubic-bezier(.2,.8,.2,1) .3s both}
+.cookie-banner.show{display:flex}
+.cookie-text{flex:1;color:rgba(255,255,255,.8)}
+.cookie-text strong{display:block;color:#fff;font-family:'Outfit';font-weight:700;font-size:14px;margin-bottom:3px}
+.cookie-text a{color:#1CA3EC;text-decoration:none;border-bottom:1px dotted rgba(28,163,236,.5)}
+.cookie-text a:hover{border-color:#1CA3EC}
+.cookie-ok{flex-shrink:0;background:#1CA3EC;color:#fff;border:0;border-radius:10px;padding:10px 18px;font-family:'Outfit';font-weight:700;font-size:13px;cursor:pointer;transition:background .2s}
+.cookie-ok:hover{background:#0ea5db}
+@keyframes cookieSlide{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+@media(max-width:560px){.cookie-banner{flex-direction:column;align-items:stretch;text-align:left}.cookie-ok{width:100%}}
+</style>
+<script>
+(function(){
+  try{
+    if(!localStorage.getItem('cookie-ok')){
+      document.getElementById('cookieBanner').classList.add('show');
+    }
+  }catch(e){document.getElementById('cookieBanner').classList.add('show')}
+})();
+function acceptCookies(){try{localStorage.setItem('cookie-ok','1')}catch(e){}document.getElementById('cookieBanner').classList.remove('show')}
+</script>
 </body>
 </html>
