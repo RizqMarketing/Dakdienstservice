@@ -10,6 +10,7 @@
 <meta property="og:description" content="Nieuwe dakpannen + 10 jaar garantie. Vrijblijvende offerte binnen 24u.">
 <meta property="og:type" content="website">
 <link rel="icon" type="image/png" href="favicon.png">
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -493,9 +494,9 @@ body.modal-open{overflow:hidden}
       <h3>Offerte binnen 24 uur</h3>
       <p class="hf-sub">Vul het formulier in — wij bellen u terug om uw situatie te bespreken en een vaste prijs af te geven.</p>
       <div class="hf-row"><input type="text" name="naam" placeholder="Naam *" required></div>
-      <div class="hf-row"><input type="tel" name="tel" placeholder="Telefoonnummer *" required></div>
+      <div class="hf-row"><input type="tel" name="telefoon" placeholder="Telefoonnummer *" required></div>
       <div class="hf-row"><input type="email" name="email" placeholder="E-mail *" required></div>
-      <div class="hf-row hf-split"><input type="text" name="straat" placeholder="Straat"><input type="text" name="nr" placeholder="Nr."></div>
+      <div class="hf-row hf-split"><input type="text" name="straat" placeholder="Straat"><input type="text" name="huisnummer" placeholder="Nr."></div>
       <div class="hf-row"><input type="text" name="stad" placeholder="Stad"></div>
       <div class="hf-row"><textarea name="bericht" placeholder="Wat kunnen we voor u doen?" rows="2"></textarea></div>
       <button type="submit" class="hf-btn">
@@ -503,6 +504,7 @@ body.modal-open{overflow:hidden}
         Verstuur aanvraag
       </button>
       <div class="hf-foot"><svg viewBox="0 0 14 14" fill="none"><path d="M7 1L1 3v4c0 3 2 5 6 7 4-2 6-4 6-7V3L7 1z" stroke="currentColor" stroke-width="1.2"/></svg>100% vrijblijvend · Geen spam</div>
+          <input type="hidden" name="bron" value="Dakpannen vernieuwen landing - hero form">
     </form>
   </div>
 </section>
@@ -725,18 +727,19 @@ body.modal-open{overflow:hidden}
       </div>
     </div>
     <div class="modal-body">
-      <form onsubmit="return submitModal(event)">
+      <form id="modalForm" onsubmit="return submitModal(event)">
         <div class="mf-grid">
-          <div class="mf-row"><label>Naam <span class="req">*</span></label><input type="text" placeholder="Uw volledige naam" required></div>
-          <div class="mf-row"><label>Telefoon <span class="req">*</span></label><input type="tel" placeholder="06 ..." required></div>
+          <div class="mf-row"><label>Naam <span class="req">*</span></label><input type="text" name="naam" placeholder="Uw volledige naam" required></div>
+          <div class="mf-row"><label>Telefoon <span class="req">*</span></label><input type="tel" name="telefoon" placeholder="06 ..." required></div>
         </div>
-        <div class="mf-row"><label>E-mailadres <span class="req">*</span></label><input type="email" placeholder="uw@email.nl" required></div>
-        <div class="mf-row"><label>Stad</label><input type="text" placeholder="Bijv. Utrecht"></div>
+        <div class="mf-row"><label>E-mailadres <span class="req">*</span></label><input type="email" name="email" placeholder="uw@email.nl" required></div>
+        <div class="mf-row"><label>Stad</label><input type="text" name="stad" placeholder="Bijv. Utrecht"></div>
         <div class="mf-row mf-split">
-          <div><label>Straat</label><input type="text" placeholder="Straatnaam"></div>
-          <div><label>Nr.</label><input type="text" placeholder="12a"></div>
+          <div><label>Straat</label><input type="text" name="straat" placeholder="Straatnaam"></div>
+          <div><label>Nr.</label><input type="text" name="huisnummer" placeholder="12a"></div>
         </div>
-        <div class="mf-row"><label>Wat kunnen we voor u doen?</label><textarea rows="3" placeholder="Beschrijf kort uw situatie of wensen..."></textarea></div>
+        <div class="mf-row"><label>Wat kunnen we voor u doen?</label><textarea name="bericht" rows="3" placeholder="Beschrijf kort uw situatie of wensen..."></textarea></div>
+        <input type="hidden" name="bron" value="Dakpannen vernieuwen landing - popup">
         <button type="submit" class="mf-btn"><svg viewBox="0 0 18 18" fill="none"><path d="M15 3L2 9l5 2 1 5 7-13z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>Verstuur aanvraag</button>
         <div class="mf-foot"><svg viewBox="0 0 14 14" fill="none"><path d="M7 1L1 3v4c0 3 2 5 6 7 4-2 6-4 6-7V3L7 1z" stroke="currentColor" stroke-width="1.2"/></svg>Uw gegevens zijn veilig en worden niet gedeeld met derden.</div>
       </form>
@@ -829,21 +832,25 @@ document.getElementById('trow2').innerHTML=_html;
 })();
 
 // Topbar scroll state (subtle shadow already via bg)
-// Form submit UI feedback (wire to real backend/service)
-function openModal(e){if(e)e.preventDefault();document.getElementById('formModal').classList.add('open');document.body.classList.add('modal-open')}
-function closeModal(){document.getElementById('formModal').classList.remove('open');document.body.classList.remove('modal-open')}
-function submitModal(e){e.preventDefault();const f=e.target;const b=f.querySelector('.mf-btn');const orig=b.innerHTML;b.innerHTML='<svg viewBox="0 0 18 18" fill="none"><path d="M4 9l3 3 7-7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg> Verzonden!';b.style.background='#22C55E';setTimeout(()=>{f.reset();b.innerHTML=orig;b.style.background='';closeModal()},2200);return false}
-document.addEventListener('keydown',e=>e.key==='Escape'&&closeModal());
-function submitForm(e){
-  e.preventDefault();
-  const f=e.target;
-  const b=f.querySelector('.hf-btn');
-  const orig=b.innerHTML;
-  b.innerHTML='<svg viewBox="0 0 18 18" fill="none"><path d="M4 9l3 3 7-7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg> Verzonden!';
-  b.style.background='#22C55E';
-  setTimeout(()=>{f.reset();b.innerHTML=orig;b.style.background=''},2800);
-  return false;
+// ===== EMAILJS =====
+const EMAILJS_PUBLIC_KEY='_IobvozfgUc_i0S31',EMAILJS_SERVICE_ID='service_fewmpdg',EMAILJS_TEMPLATE_ID='template_ga593la';
+if(window.emailjs)emailjs.init({publicKey:EMAILJS_PUBLIC_KEY});
+function _sendLandingForm(f,b,orig,successHTML,onDone){
+  b.disabled=true;b.innerHTML='Versturen...';
+  return emailjs.sendForm(EMAILJS_SERVICE_ID,EMAILJS_TEMPLATE_ID,f).then(()=>{
+    b.innerHTML=successHTML;b.style.background='#22C55E';
+    setTimeout(()=>{f.reset();b.disabled=false;b.innerHTML=orig;b.style.background='';if(onDone)onDone()},2500);
+  }).catch(err=>{
+    console.error('EmailJS:',err);b.innerHTML='Fout - probeer opnieuw';b.style.background='#DC2626';
+    setTimeout(()=>{b.disabled=false;b.innerHTML=orig;b.style.background=''},3000);
+  });
 }
+let _landingScrollY=0;
+function openModal(e){if(e)e.preventDefault();_landingScrollY=window.scrollY||0;document.getElementById('formModal').classList.add('open');document.body.classList.add('modal-open')}
+function closeModal(){document.getElementById('formModal').classList.remove('open');document.body.classList.remove('modal-open');if(document.activeElement&&document.activeElement.blur)document.activeElement.blur();window.scrollTo({top:_landingScrollY,left:0,behavior:'instant'in window?'instant':'auto'})}
+document.addEventListener('keydown',e=>e.key==='Escape'&&closeModal());
+function submitModal(e){e.preventDefault();const f=e.target;const b=f.querySelector('.mf-btn');const orig=b.innerHTML;_sendLandingForm(f,b,orig,'Verzonden!',closeModal);return false}
+function submitForm(e){e.preventDefault();const f=e.target;const b=f.querySelector('.hf-btn');const orig=b.innerHTML;_sendLandingForm(f,b,orig,'Verzonden!');return false}
 
 // Scroll to top on refresh
 if('scrollRestoration' in history){history.scrollRestoration='manual'}
