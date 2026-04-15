@@ -14,6 +14,7 @@
 <meta property="og:image" content="favicon.png">
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="canonical" href="https://www.dakdienstservice.nl/">
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
@@ -892,24 +893,25 @@ body{padding-bottom:86px}
       <p class="hf-sub">Laat uw gegevens achter — wij bellen u terug voor een gratis dakinspectie.</p>
     </div>
     <div class="hf-row">
-      <input type="text" placeholder="Naam *" required>
+      <input type="text" name="naam" placeholder="Naam *" required>
     </div>
     <div class="hf-row">
-      <input type="tel" placeholder="Telefoonnummer *" required>
+      <input type="tel" name="telefoon" placeholder="Telefoonnummer *" required>
     </div>
     <div class="hf-row">
-      <input type="email" placeholder="E-mail *" required>
+      <input type="email" name="email" placeholder="E-mail *" required>
     </div>
     <div class="hf-row hf-row-split">
-      <input type="text" placeholder="Straat">
-      <input type="text" placeholder="Nr." class="hf-nr">
+      <input type="text" name="straat" placeholder="Straat">
+      <input type="text" name="huisnummer" placeholder="Nr." class="hf-nr">
     </div>
     <div class="hf-row">
-      <input type="text" placeholder="Stad">
+      <input type="text" name="stad" placeholder="Stad">
     </div>
     <div class="hf-row">
-      <textarea placeholder="Wat kunnen we voor u doen?" rows="2"></textarea>
+      <textarea name="bericht" placeholder="Wat kunnen we voor u doen?" rows="2"></textarea>
     </div>
+    <input type="hidden" name="bron" value="Hero formulier (homepage)">
     <button type="submit" class="hf-btn">
       <svg viewBox="0 0 18 18" fill="none"><path d="M15 3L2 9l5 2 1 5 7-13z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
       Offerte aanvragen
@@ -1348,20 +1350,20 @@ body{padding-bottom:86px}
     </div>
 
     <div class="modal-body">
-      <form onsubmit="return false">
+      <form id="modalForm" onsubmit="modalSubmit(event)">
         <div class="form-row">
           <div class="form-group">
             <label>Naam <span class="req">*</span></label>
             <div class="form-input-wrap">
               <svg class="form-ico" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="5" r="3" stroke="currentColor" stroke-width="1.3"/><path d="M2 15c0-3 2.7-5.5 6-5.5s6 2.5 6 5.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
-              <input type="text" placeholder="Uw volledige naam" required>
+              <input type="text" name="naam" placeholder="Uw volledige naam" required>
             </div>
           </div>
           <div class="form-group">
             <label>Telefoon <span class="req">*</span></label>
             <div class="form-input-wrap">
               <svg class="form-ico" viewBox="0 0 16 16" fill="none"><path d="M6.6 9.4c1 1.8 2.6 3.4 4.4 4.4l1.4-1.4c.2-.2.4-.2.6-.1.7.2 1.4.4 2.2.4.3 0 .6.3.6.6v2c0 .3-.3.6-.6.6C7 16 0 9 0 .8 0 .5.3.2.6.2h2c.3 0 .6.3.6.6 0 .8.1 1.5.4 2.2.1.2 0 .4-.1.6L2 5" stroke="currentColor" stroke-width="1.2"/></svg>
-              <input type="tel" placeholder="+31 6 ..." required>
+              <input type="tel" name="telefoon" placeholder="+31 6 ..." required>
             </div>
           </div>
         </div>
@@ -1369,14 +1371,14 @@ body{padding-bottom:86px}
           <label>E-mailadres <span class="req">*</span></label>
           <div class="form-input-wrap">
             <svg class="form-ico" viewBox="0 0 16 16" fill="none"><rect x="1" y="3.5" width="14" height="9" rx="2" stroke="currentColor" stroke-width="1.2"/><path d="M1 5l7 4.5L15 5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
-            <input type="email" placeholder="uw@email.nl" required>
+            <input type="email" name="email" placeholder="uw@email.nl" required>
           </div>
         </div>
         <div class="form-group">
           <label>Stad</label>
           <div class="form-input-wrap">
             <svg class="form-ico" viewBox="0 0 16 16" fill="none"><path d="M8 1C5 1 2.5 3.5 2.5 6.5 2.5 10 8 15 8 15s5.5-5 5.5-8.5C13.5 3.5 11 1 8 1z" stroke="currentColor" stroke-width="1.2"/><circle cx="8" cy="6.5" r="2" stroke="currentColor" stroke-width="1.2"/></svg>
-            <input type="text" placeholder="Bijv. Breukelen">
+            <input type="text" name="stad" placeholder="Bijv. Breukelen">
           </div>
         </div>
         <div class="form-row">
@@ -1384,18 +1386,19 @@ body{padding-bottom:86px}
             <label>Straat</label>
             <div class="form-input-wrap">
               <svg class="form-ico" viewBox="0 0 16 16" fill="none"><path d="M2 14h12M4 14V6l4-3 4 3v8M7 14v-4h2v4" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg>
-              <input type="text" placeholder="Straatnaam">
+              <input type="text" name="straat" placeholder="Straatnaam">
             </div>
           </div>
           <div class="form-group">
             <label>Huisnummer</label>
             <div class="form-input-wrap">
               <svg class="form-ico" viewBox="0 0 16 16" fill="none"><path d="M5 4h1v8H5zM7 4h2l1 8H8zM11 4h1v8h-1z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg>
-              <input type="text" placeholder="12a">
+              <input type="text" name="huisnummer" placeholder="12a">
             </div>
           </div>
         </div>
-        <div class="form-group"><label>Wat kunnen we voor u doen?</label><textarea placeholder="Beschrijf kort uw situatie of wensen..."></textarea></div>
+        <div class="form-group"><label>Wat kunnen we voor u doen?</label><textarea name="bericht" placeholder="Beschrijf kort uw situatie of wensen..."></textarea></div>
+        <input type="hidden" name="bron" value="Popup formulier">
         <button type="submit" class="form-submit">
           Verstuur Aanvraag
           <svg viewBox="0 0 18 18" fill="none"><path d="M4 9h10M10 5l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -1620,14 +1623,34 @@ document.querySelectorAll('.testi-row').forEach(row=>{
 })();
 
 // ===== HERO FORM =====
+// ===== EMAILJS CONFIG — vul deze in =====
+const EMAILJS_PUBLIC_KEY = '_IobvozfgUc_i0S31';
+const EMAILJS_SERVICE_ID = 'service_fewmpdg';
+const EMAILJS_TEMPLATE_ID = 'template_ga593la';
+if(window.emailjs)emailjs.init({publicKey:EMAILJS_PUBLIC_KEY});
+
+function _sendForm(form,btn,origHTML,successHTML){
+  btn.disabled=true;btn.innerHTML='Versturen...';
+  return emailjs.sendForm(EMAILJS_SERVICE_ID,EMAILJS_TEMPLATE_ID,form)
+    .then(()=>{
+      btn.innerHTML=successHTML;btn.style.background='#22C55E';
+      setTimeout(()=>{form.reset();btn.disabled=false;btn.innerHTML=origHTML;btn.style.background=''},2500);
+    })
+    .catch(err=>{
+      console.error('EmailJS error:',err);
+      btn.innerHTML='Fout — probeer opnieuw';btn.style.background='#DC2626';
+      setTimeout(()=>{btn.disabled=false;btn.innerHTML=origHTML;btn.style.background=''},3000);
+    });
+}
 function heroSubmit(e){
   e.preventDefault();
-  const form=e.target;
-  const btn=form.querySelector('.hf-btn');
-  const orig=btn.innerHTML;
-  btn.innerHTML='<svg viewBox="0 0 18 18" fill="none"><path d="M4 9l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Verzonden!';
-  btn.style.background='#22C55E';
-  setTimeout(()=>{form.reset();btn.innerHTML=orig;btn.style.background=''},2500);
+  const form=e.target;const btn=form.querySelector('.hf-btn');
+  _sendForm(form,btn,btn.innerHTML,'<svg viewBox="0 0 18 18" fill="none"><path d="M4 9l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Verzonden!');
+}
+function modalSubmit(e){
+  e.preventDefault();
+  const form=e.target;const btn=form.querySelector('.form-submit');
+  _sendForm(form,btn,btn.innerHTML,'Verzonden ✓');
 }
 // ===== POPUP FORM =====
 let _modalScrollY=0;

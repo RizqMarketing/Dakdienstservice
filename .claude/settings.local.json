@@ -2,7 +2,9 @@
   "permissions": {
     "allow": [
       "Bash(cp \"/c/Users/mazin/Downloads/Blogpost-Dakdienst-25.png\" \"/c/Users/mazin/Dakdienst NIEUW/img-dakisolatie.png\")",
-      "Read(//c/Users/mazin/Dakdienst NIEUW/**)"
+      "Read(//c/Users/mazin/Dakdienst NIEUW/**)",
+      "Bash(grep -rno \"06[ -]*40[ -]*86[ -]*5368\\\\|tel:+31640865368\\\\|tel:0640865368\\\\|06 4086 5368\\\\|06-4086-5368\\\\|06-40865368\" *.html)",
+      "Bash(python *)"
     ]
   }
 }
