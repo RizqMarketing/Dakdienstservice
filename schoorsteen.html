@@ -3,6 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<!-- Google Consent Mode v2 (default: denied) -->
+<script>
+window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('consent','default',{'ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','analytics_storage':'denied','wait_for_update':500});
+try{if(localStorage.getItem('cookie-ok')==='1'){gtag('consent','update',{'ad_storage':'granted','ad_user_data':'granted','ad_personalization':'granted','analytics_storage':'granted'});}}catch(e){}
+</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-10816956098"></script>
+<script>gtag('js',new Date());gtag('config','AW-10816956098');</script>
 <title>Schoorsteen Renovatie &amp; Reparatie — DakDienstService</title>
 <meta name="description" content="Schoorsteen renoveren, voegen, loodwerk vernieuwen of volledig herbouwen. De #1 lekkageoorzaak — wij verhelpen het met 10 jaar garantie.">
 <meta name="robots" content="index,follow">
@@ -628,7 +638,7 @@ body.modal-open{overflow:hidden}
     <div class="faq-list">
       <details class="faq-item rv rv-d1" open>
         <summary>Wat kost schoorsteen renovatie?<span class="faq-icon"><svg viewBox="0 0 12 12"><path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span></summary>
-        <div class="faq-body">Voegwerk en impregneren vanaf €450. Volledige renovatie (voegen, lood, topplaat) meestal €750-€1800. Complete herbouw vanaf €1500. Afhankelijk van hoogte en toegankelijkheid.</div>
+        <div class="faq-body">Sterk afhankelijk van de omvang (alleen voegen, compleet renoveren of herbouwen), hoogte en toegankelijkheid. Vraag een vrijblijvende offerte aan — na gratis inspectie ontvangt u binnen 24 uur een vaste prijs op maat.</div>
       </details>
       <details class="faq-item rv rv-d2">
         <summary>Waarom lekt het bij de schoorsteen?<span class="faq-icon"><svg viewBox="0 0 12 12"><path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span></summary>
@@ -848,7 +858,7 @@ function _sendLandingForm(f,b,orig,successHTML,onDone){
   b.disabled=true;b.innerHTML='Versturen...';
   return emailjs.sendForm(EMAILJS_SERVICE_ID,EMAILJS_TEMPLATE_ID,f).then(()=>{
     b.innerHTML=successHTML;b.style.background='#22C55E';
-    setTimeout(()=>{f.reset();b.disabled=false;b.innerHTML=orig;b.style.background='';if(onDone)onDone()},2500);
+    setTimeout(()=>{window.location.href='bedankt.html'},700);
   }).catch(err=>{
     console.error('EmailJS:',err);b.innerHTML='Fout - probeer opnieuw';b.style.background='#DC2626';
     setTimeout(()=>{b.disabled=false;b.innerHTML=orig;b.style.background=''},3000);
@@ -888,8 +898,11 @@ window.addEventListener('beforeunload',()=>window.scrollTo(0,0));
 
 <!-- COOKIE BANNER -->
 <div class="cookie-banner" id="cookieBanner" role="dialog" aria-live="polite" aria-label="Cookie melding">
-  <div class="cookie-text"><strong>Cookies op deze website</strong>Wij gebruiken uitsluitend functionele cookies om de site goed te laten werken. Geen tracking of advertentiecookies. <a href="privacy-cookies.html">Lees meer</a></div>
-  <button class="cookie-ok" onclick="acceptCookies()">Akkoord</button>
+  <div class="cookie-text"><strong>Cookies &amp; tracking</strong>Wij gebruiken functionele cookies plus analyse- en advertentiecookies (Google Ads) om te meten of onze advertenties werken. <a href="privacy-cookies.html">Lees meer</a></div>
+  <div style="display:flex;gap:8px;flex-shrink:0;flex-wrap:wrap">
+    <button onclick="declineCookies()" style="background:rgba(255,255,255,.08);color:rgba(255,255,255,.75);border:1px solid rgba(255,255,255,.12);border-radius:10px;padding:10px 16px;font-family:'Outfit';font-weight:600;font-size:12.5px;cursor:pointer">Weigeren</button>
+    <button class="cookie-ok" onclick="acceptCookies()">Akkoord</button>
+  </div>
 </div>
 <style>
 .cookie-banner{position:fixed;left:16px;right:16px;bottom:16px;max-width:520px;margin-left:auto;margin-right:auto;background:#0F1A30;color:#fff;border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:16px 18px;display:none;align-items:center;gap:14px;font-family:'DM Sans',sans-serif;font-size:13.5px;line-height:1.45;z-index:10000;box-shadow:0 20px 50px rgba(0,0,0,.35);animation:cookieSlide .4s cubic-bezier(.2,.8,.2,1) .3s both}
@@ -911,7 +924,8 @@ window.addEventListener('beforeunload',()=>window.scrollTo(0,0));
     }
   }catch(e){document.getElementById('cookieBanner').classList.add('show')}
 })();
-function acceptCookies(){try{localStorage.setItem('cookie-ok','1')}catch(e){}document.getElementById('cookieBanner').classList.remove('show')}
+function acceptCookies(){try{localStorage.setItem('cookie-ok','1')}catch(e){}if(typeof gtag==='function'){gtag('consent','update',{'ad_storage':'granted','ad_user_data':'granted','ad_personalization':'granted','analytics_storage':'granted'})}document.getElementById('cookieBanner').classList.remove('show')}
+function declineCookies(){try{localStorage.setItem('cookie-ok','0')}catch(e){}document.getElementById('cookieBanner').classList.remove('show')}
 </script>
 </body>
 </html>
