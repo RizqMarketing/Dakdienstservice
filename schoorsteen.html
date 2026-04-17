@@ -855,6 +855,7 @@ document.getElementById('trow2').innerHTML=_html;
 const EMAILJS_PUBLIC_KEY='_IobvozfgUc_i0S31',EMAILJS_SERVICE_ID='service_fewmpdg',EMAILJS_TEMPLATE_ID='template_ga593la';
 if(window.emailjs)emailjs.init({publicKey:EMAILJS_PUBLIC_KEY});
 function _sendLandingForm(f,b,orig,successHTML,onDone){
+  const _bf=f.querySelector("[name=\"bericht\"]");if(_bf&&!_bf.value.trim())_bf.value="—";
   b.disabled=true;b.innerHTML='Versturen...';
   return emailjs.sendForm(EMAILJS_SERVICE_ID,EMAILJS_TEMPLATE_ID,f).then(()=>{
     b.innerHTML=successHTML;b.style.background='#22C55E';
