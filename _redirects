@@ -1,0 +1,4 @@
+# Webmail draait op de cPanel-host (s1135.hostingsecure.com), niet op Netlify.
+# Deze redirect herstelt dakdienstservice.nl/webmail naar de cPanel-webmail.
+/webmail      https://s1135.hostingsecure.com:2096/   302
+/webmail/*    https://s1135.hostingsecure.com:2096/   302
